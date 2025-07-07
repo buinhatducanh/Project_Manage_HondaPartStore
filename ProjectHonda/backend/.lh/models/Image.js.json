@@ -1,0 +1,62 @@
+{
+    "sourceFile": "models/Image.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1739002543239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1739002619016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const imageSchema = new mongoose.Schema({\r\n   product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n-  url: { type: String, required: true },\r\n+  name: { type: String, required: true },\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739002658728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,8 @@\n \r\n const imageSchema = new mongoose.Schema({\r\n   product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n   name: { type: String, required: true },\r\n+  url: { type: String, required: true }\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739002673629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const imageSchema = new mongoose.Schema({\r\n   product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n-  name: { type: String, required: true },\r\n   url: { type: String, required: true }\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739007453404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,6 @@\n   product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n   url: { type: String, required: true }\r\n }, { timestamps: true });\r\n \r\n-module.exports = mongoose.model(\"Image\", imageSchema);\r\n+module.exports = mongoose.model(\"Image\", imageSchema, \"product_images\");\r\n+\r\n"
+                },
+                {
+                    "date": 1739007489480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,5 @@\n   product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n   url: { type: String, required: true }\r\n }, { timestamps: true });\r\n \r\n-module.exports = mongoose.model(\"Image\", imageSchema, \"product_images\");\r\n-\r\n+module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739007506633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const imageSchema = new mongoose.Schema({\r\n-  product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n+  name:{ type: String, required: true },\r\n   url: { type: String, required: true }\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739007527123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const imageSchema = new mongoose.Schema({\r\n-  name:{ type: String, required: true },\r\n+  product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n   url: { type: String, required: true }\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739008032685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const imageSchema = new mongoose.Schema({\r\n-  product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n   url: { type: String, required: true }\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739008056470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const imageSchema = new mongoose.Schema({\r\n+  product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n   url: { type: String, required: true }\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739364382070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n const mongoose = require(\"mongoose\");\r\n \r\n-const imageSchema = new mongoose.Schema({\r\n-  product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n-  url: { type: String, required: true }\r\n-}, { timestamps: true });\r\n+const imageSchema = new mongoose.Schema(\r\n+  {\r\n+    url: { type: String, required: true }, // URL của ảnh trên Cloudinary\r\n+    publicId: { type: String, required: true }, // ID trên Cloudinary để xóa ảnh sau này\r\n+  },\r\n+  { timestamps: true }\r\n+);\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                },
+                {
+                    "date": 1739808984907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,18 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const imageSchema = new mongoose.Schema(\r\n   {\r\n-    url: { type: String, required: true }, // URL của ảnh trên Cloudinary\r\n-    publicId: { type: String, required: true }, // ID trên Cloudinary để xóa ảnh sau này\r\n+    product: { \r\n+      type: mongoose.Schema.Types.ObjectId, \r\n+      ref: \"Product\", // Liên kết với sản phẩm trong MongoDB\r\n+      required: true \r\n+    },\r\n+    url: { \r\n+      type: String, \r\n+      required: true, // URL ảnh từ Cloudinary\r\n+    },\r\n   },\r\n-  { timestamps: true }\r\n+  { timestamps: true } // Tự động thêm thời gian tạo và cập nhật\r\n );\r\n \r\n module.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+                }
+            ],
+            "date": 1739002543239,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\n\r\nconst imageSchema = new mongoose.Schema({\r\n  product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n  url: { type: String, required: true },\r\n}, { timestamps: true });\r\n\r\nmodule.exports = mongoose.model(\"Image\", imageSchema);\r\n"
+        }
+    ]
+}

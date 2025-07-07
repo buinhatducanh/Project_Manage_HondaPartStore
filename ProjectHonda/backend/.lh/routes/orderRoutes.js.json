@@ -1,0 +1,34 @@
+{
+    "sourceFile": "routes/orderRoutes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1738064365768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738064377187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require(\"express\");\r\n const router = express.Router();\r\n-const Order = require(\"../models/order\");\r\n+const Order = require(\"./models/order\");\r\n \r\n // CREATE: Tạo đơn hàng mới\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n"
+                },
+                {
+                    "date": 1738064461584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require(\"express\");\r\n const router = express.Router();\r\n-const Order = require(\"./models/order\");\r\n+const Order = require(\"./models/Order\");\r\n \r\n // CREATE: Tạo đơn hàng mới\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n"
+                },
+                {
+                    "date": 1738064489600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require(\"express\");\r\n const router = express.Router();\r\n-const Order = require(\"./models/Order\");\r\n+const Order = require(\"./models/Order.js\");\r\n \r\n // CREATE: Tạo đơn hàng mới\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n"
+                },
+                {
+                    "date": 1738064663632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require(\"express\");\r\n const router = express.Router();\r\n-const Order = require(\"./models/Order.js\");\r\n+const Order = require(\"../models/Order.js\");\r\n \r\n // CREATE: Tạo đơn hàng mới\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n"
+                }
+            ],
+            "date": 1738064365768,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst router = express.Router();\r\nconst Order = require(\"../models/order\");\r\n\r\n// CREATE: Tạo đơn hàng mới\r\nrouter.post(\"/\", async (req, res) => {\r\n  try {\r\n    const order = new Order(req.body);\r\n    await order.save();\r\n    res.status(201).json(order);\r\n  } catch (err) {\r\n    res.status(400).json({ message: err.message });\r\n  }\r\n});\r\n\r\n// READ: Lấy tất cả đơn hàng\r\nrouter.get(\"/\", async (req, res) => {\r\n  try {\r\n    const orders = await Order.find().populate(\"user\").populate(\"products.product\");\r\n    res.status(200).json(orders);\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n});\r\n\r\nmodule.exports = router;\r\n"
+        }
+    ]
+}

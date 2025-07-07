@@ -1,0 +1,13 @@
+# Node modules (FE)
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# Java build (BE)
+backend/target/
+backend/.env
+
+# General
+.DS_Store
+*.log
+

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "models/Order.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738064305353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738067722384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,36 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const orderSchema = new mongoose.Schema({\r\n-  user: { type: mongoose.Schema.Types.ObjectId, ref: \"User\", required: true },\r\n+  user: { \r\n+    type: mongoose.Schema.Types.ObjectId, \r\n+    ref: \"User\", \r\n+    required: true \r\n+  },  // Trường này là ObjectId liên kết với collection User\r\n+  \r\n   products: [\r\n     {\r\n-      product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n-      quantity: { type: Number, required: true },\r\n+      product: { \r\n+        type: mongoose.Schema.Types.ObjectId, \r\n+        ref: \"Product\", \r\n+        required: true \r\n+      },  // Trường này là ObjectId liên kết với collection Product\r\n+      quantity: { \r\n+        type: Number, \r\n+        required: true \r\n+      },  // Số lượng của sản phẩm trong đơn hàng\r\n     }\r\n   ],\r\n-  totalAmount: { type: Number, required: true },\r\n-  status: { type: String, enum: ['pending', 'shipped', 'delivered'], default: 'pending' },\r\n-}, { timestamps: true });\r\n+  \r\n+  totalAmount: { \r\n+    type: Number, \r\n+    required: true \r\n+  },  // Tổng giá trị đơn hàng\r\n+  \r\n+  status: { \r\n+    type: String, \r\n+    enum: ['pending', 'shipped', 'delivered'], \r\n+    default: 'pending' \r\n+  },  // Trạng thái đơn hàng (pending, shipped, delivered)\r\n+}, { timestamps: true });  // Tự động thêm createdAt và updatedAt\r\n \r\n module.exports = mongoose.model(\"Order\", orderSchema);\r\n"
+                }
+            ],
+            "date": 1738064305353,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\n\r\nconst orderSchema = new mongoose.Schema({\r\n  user: { type: mongoose.Schema.Types.ObjectId, ref: \"User\", required: true },\r\n  products: [\r\n    {\r\n      product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n      quantity: { type: Number, required: true },\r\n    }\r\n  ],\r\n  totalAmount: { type: Number, required: true },\r\n  status: { type: String, enum: ['pending', 'shipped', 'delivered'], default: 'pending' },\r\n}, { timestamps: true });\r\n\r\nmodule.exports = mongoose.model(\"Order\", orderSchema);\r\n"
+        }
+    ]
+}

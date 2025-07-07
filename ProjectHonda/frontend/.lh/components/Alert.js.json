@@ -1,0 +1,22 @@
+{
+    "sourceFile": "components/Alert.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1739379835572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1739379840850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,5 +28,10 @@\n       className={`fixed top-5 right-5 px-4 py-3 border-l-4 rounded-lg shadow-md flex items-center space-x-3 ${alertStyles[type]}`}\r\n     >\r\n       {iconStyles[type]}\r\n       <span>{message}</span>\r\n-      <button class\r\n+      <button className=\"ml-2 text-gray-600\" onClick={() => setVisible(false)}>✖</button>\r\n+    </div>\r\n+  );\r\n+};\r\n+\r\n+export default Alert;\r\n"
+                }
+            ],
+            "date": 1739379835572,
+            "name": "Commit-0",
+            "content": "import { useState, useEffect } from \"react\";\r\nimport { XCircle, CheckCircle, AlertTriangle } from \"lucide-react\";\r\n\r\nconst Alert = ({ type = \"success\", message, duration = 3000 }) => {\r\n  const [visible, setVisible] = useState(true);\r\n\r\n  useEffect(() => {\r\n    const timer = setTimeout(() => setVisible(false), duration);\r\n    return () => clearTimeout(timer);\r\n  }, [duration]);\r\n\r\n  if (!visible) return null;\r\n\r\n  const alertStyles = {\r\n    success: \"bg-green-100 text-green-700 border-green-400\",\r\n    warning: \"bg-yellow-100 text-yellow-700 border-yellow-400\",\r\n    error: \"bg-red-100 text-red-700 border-red-400\",\r\n  };\r\n\r\n  const iconStyles = {\r\n    success: <CheckCircle className=\"h-5 w-5 text-green-700\" />,\r\n    warning: <AlertTriangle className=\"h-5 w-5 text-yellow-700\" />,\r\n    error: <XCircle className=\"h-5 w-5 text-red-700\" />,\r\n  };\r\n\r\n  return (\r\n    <div\r\n      className={`fixed top-5 right-5 px-4 py-3 border-l-4 rounded-lg shadow-md flex items-center space-x-3 ${alertStyles[type]}`}\r\n    >\r\n      {iconStyles[type]}\r\n      <span>{message}</span>\r\n      <button class\r\n"
+        }
+    ]
+}

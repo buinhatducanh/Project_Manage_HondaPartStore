@@ -1,0 +1,98 @@
+[
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60101" },
+    "name": "Phụ tùng",
+    "description": "Các bộ phận thay thế chính hãng của xe máy Honda.",
+    "parent": null
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60102" },
+    "name": "Dàn Điện",
+    "description": "Các linh kiện điện của xe máy như đèn, còi, bình ắc quy.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60101" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60103" },
+    "name": "Đèn",
+    "description": "Các loại đèn pha, đèn xi-nhan, đèn hậu cho xe máy Honda.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60102" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60104" },
+    "name": "Bình ắc quy",
+    "description": "Bình điện xe máy giúp khởi động và cung cấp nguồn điện cho xe.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60102" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60105" },
+    "name": "Còi",
+    "description": "Thiết bị cảnh báo âm thanh của xe máy.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60102" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60106" },
+    "name": "Dàn Nhựa",
+    "description": "Các bộ phận nhựa bên ngoài như yếm, mặt nạ, ốp hông xe.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60101" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60107" },
+    "name": "Lốp & Mâm",
+    "description": "Các loại lốp xe và mâm xe máy Honda.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60101" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60108" },
+    "name": "Hệ thống phanh",
+    "description": "Các bộ phận liên quan đến hệ thống phanh của xe máy Honda.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60101" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60109" },
+    "name": "Má phanh",
+    "description": "Bộ phận quan trọng giúp hãm tốc độ xe an toàn.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60108" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60110" },
+    "name": "Dây ga & Dây phanh",
+    "description": "Các loại dây ga, dây phanh trước và sau của xe máy.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60108" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60111" },
+    "name": "Hệ thống truyền động",
+    "description": "Các bộ phận liên quan đến truyền động như nhông, sên, đĩa.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60101" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60112" },
+    "name": "Nhông sên đĩa",
+    "description": "Hệ thống truyền động bao gồm nhông, sên và đĩa giúp xe vận hành mượt mà.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60111" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60113" },
+    "name": "Hệ thống động cơ",
+    "description": "Các bộ phận quan trọng của động cơ xe máy Honda.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60101" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60114" },
+    "name": "Bugi",
+    "description": "Bộ phận đánh lửa quan trọng giúp động cơ hoạt động ổn định.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60113" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60115" },
+    "name": "Lọc gió",
+    "description": "Bộ phận giúp lọc sạch bụi bẩn trong không khí trước khi vào động cơ.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60113" }
+  },
+  {
+    "_id": { "$oid": "65c234a1a1b2c3d4e5f60116" },
+    "name": "Dầu nhớt",
+    "description": "Dầu bôi trơn giúp động cơ vận hành trơn tru và bền bỉ.",
+    "parent": { "$oid": "65c234a1a1b2c3d4e5f60113" }
+  }
+]

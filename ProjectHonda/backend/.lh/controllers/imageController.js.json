@@ -1,0 +1,34 @@
+{
+    "sourceFile": "controllers/imageController.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1738927278094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738927285269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const Image = require(\"../models/ImagePd\");\r\n-const Product = require(\"../models/productModel\");\r\n+const Product = require(\"../models/Product\");\r\n const path = require(\"path\");\r\n const fs = require(\"fs\");\r\n \r\n // Upload ảnh\r\n"
+                },
+                {
+                    "date": 1738999139021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,53 +1,22 @@\n-const Image = require(\"../models/ImagePd\");\r\n-const Product = require(\"../models/Product\");\r\n-const path = require(\"path\");\r\n-const fs = require(\"fs\");\r\n+const Image = require(\"../models/imageModel\");\r\n+const Product = require(\"../models/productModel\");\r\n \r\n-// Upload ảnh\r\n exports.uploadImage = async (req, res) => {\r\n   try {\r\n     const { productId } = req.body;\r\n     if (!productId) return res.status(400).json({ message: \"Cần có ID sản phẩm\" });\r\n \r\n-    // Kiểm tra sản phẩm tồn tại\r\n     const product = await Product.findById(productId);\r\n     if (!product) return res.status(404).json({ message: \"Không tìm thấy sản phẩm\" });\r\n \r\n     const image = new Image({\r\n       product: productId,\r\n-      url: `/uploads/${req.file.filename}`,\r\n+      url: req.file.path, // Lấy URL từ Cloudinary\r\n     });\r\n \r\n     await image.save();\r\n     res.status(201).json({ message: \"Ảnh tải lên thành công\", image });\r\n   } catch (err) {\r\n     res.status(500).json({ message: err.message });\r\n   }\r\n };\r\n-\r\n-// Lấy ảnh theo sản phẩm\r\n-exports.getImagesByProduct = async (req, res) => {\r\n-  try {\r\n-    const images = await Image.find({ product: req.params.productId });\r\n-    res.json(images);\r\n-  } catch (err) {\r\n-    res.status(500).json({ message: err.message });\r\n-  }\r\n-};\r\n-\r\n-// Xóa ảnh\r\n-exports.deleteImage = async (req, res) => {\r\n-  try {\r\n-    const image = await Image.findById(req.params.id);\r\n-    if (!image) return res.status(404).json({ message: \"Không tìm thấy ảnh\" });\r\n-\r\n-    // Xóa file vật lý\r\n-    const imagePath = path.join(__dirname, \"..\", image.url);\r\n-    fs.unlinkSync(imagePath);\r\n-\r\n-    await Image.findByIdAndDelete(req.params.id);\r\n-    res.json({ message: \"Ảnh đã được xóa\" });\r\n-  } catch (err) {\r\n-    res.status(500).json({ message: err.message });\r\n-  }\r\n-};\r\n"
+                },
+                {
+                    "date": 1739002390953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-const Image = require(\"../models/imageModel\");\r\n-const Product = require(\"../models/productModel\");\r\n+const Image = require(\"../models/Image\");\r\n+const Product = require(\"../models/Product\");\r\n \r\n exports.uploadImage = async (req, res) => {\r\n   try {\r\n     const { productId } = req.body;\r\n"
+                },
+                {
+                    "date": 1739007454929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+const Image = require(\"../models/Image\");\r\n+const Product = require(\"../models/Product\");\r\n+\r\n+exports.uploadImage = async (req, res) => {\r\n+  try {\r\n+    const { productId } = req.body;\r\n+    if (!productId) return res.status(400).json({ message: \"Cần có ID sản phẩm\" });\r\n+\r\n+    const product = await Product.findById(productId);\r\n+    if (!product) return res.status(404).json({ message: \"Không tìm thấy sản phẩm\" });\r\n+\r\n+    const image = new Image({\r\n+      product: productId,\r\n+      url: req.file.path, // Lấy URL từ Cloudinary\r\n+    });\r\n+\r\n+    await image.save();\r\n+    res.status(201).json({ message: \"Ảnh tải lên thành công\", image });\r\n+  } catch (err) {\r\n+    res.status(500).json({ message: err.message });\r\n+  }\r\n+};\r\n"
+                }
+            ],
+            "date": 1738927278094,
+            "name": "Commit-0",
+            "content": "const Image = require(\"../models/ImagePd\");\r\nconst Product = require(\"../models/productModel\");\r\nconst path = require(\"path\");\r\nconst fs = require(\"fs\");\r\n\r\n// Upload ảnh\r\nexports.uploadImage = async (req, res) => {\r\n  try {\r\n    const { productId } = req.body;\r\n    if (!productId) return res.status(400).json({ message: \"Cần có ID sản phẩm\" });\r\n\r\n    // Kiểm tra sản phẩm tồn tại\r\n    const product = await Product.findById(productId);\r\n    if (!product) return res.status(404).json({ message: \"Không tìm thấy sản phẩm\" });\r\n\r\n    const image = new Image({\r\n      product: productId,\r\n      url: `/uploads/${req.file.filename}`,\r\n    });\r\n\r\n    await image.save();\r\n    res.status(201).json({ message: \"Ảnh tải lên thành công\", image });\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n};\r\n\r\n// Lấy ảnh theo sản phẩm\r\nexports.getImagesByProduct = async (req, res) => {\r\n  try {\r\n    const images = await Image.find({ product: req.params.productId });\r\n    res.json(images);\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n};\r\n\r\n// Xóa ảnh\r\nexports.deleteImage = async (req, res) => {\r\n  try {\r\n    const image = await Image.findById(req.params.id);\r\n    if (!image) return res.status(404).json({ message: \"Không tìm thấy ảnh\" });\r\n\r\n    // Xóa file vật lý\r\n    const imagePath = path.join(__dirname, \"..\", image.url);\r\n    fs.unlinkSync(imagePath);\r\n\r\n    await Image.findByIdAndDelete(req.params.id);\r\n    res.json({ message: \"Ảnh đã được xóa\" });\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n};\r\n"
+        }
+    ]
+}

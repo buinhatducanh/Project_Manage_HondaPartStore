@@ -1,0 +1,18 @@
+{
+    "sourceFile": "pages/login.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1739378370830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1739378370830,
+            "name": "Commit-0",
+            "content": "import Login from \"../components/Login\";\r\n\r\nexport default function LoginPage() {\r\n  return <Login />;\r\n}\r\n"
+        }
+    ]
+}

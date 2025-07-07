@@ -1,0 +1,17 @@
+  [
+      {
+        "name": "Admin User",
+        "numberphone": 1234567890,
+        "email": "admin@example.com",
+        "password": "$2a$10$abcdefg1234567890hashed", 
+        "role": "admin"
+      },
+      {
+        "name": "Employee User",
+        "numberphone": 9876543210,
+        "email": "employee@example.com",
+        "password": "$2a$10$1234567890abcdefghashed",
+        "role": "customer"
+      }
+    ]
+    

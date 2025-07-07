@@ -1,0 +1,22 @@
+{
+    "sourceFile": "pages/accessories copy.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738750608563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738867795840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,14 @@\n import { useRouter } from \"next/router\";\r\n-import Header from \"../components/Header\";\r\n-import Footer from \"../components/Footer\";\r\n \r\n const Accessories = () => {\r\n   const router = useRouter();\r\n \r\n   return (\r\n     <>\r\n-      <Header />\r\n       <div className=\"container mx-auto p-4\">\r\n \r\n       </div>\r\n-      <Footer />\r\n     </>\r\n   );\r\n };\r\n \r\n"
+                }
+            ],
+            "date": 1738750608563,
+            "name": "Commit-0",
+            "content": "import { useRouter } from \"next/router\";\r\nimport Header from \"../components/Header\";\r\nimport Footer from \"../components/Footer\";\r\n\r\nconst Accessories = () => {\r\n  const router = useRouter();\r\n\r\n  return (\r\n    <>\r\n      <Header />\r\n      <div className=\"container mx-auto p-4\">\r\n\r\n      </div>\r\n      <Footer />\r\n    </>\r\n  );\r\n};\r\n\r\nexport default Accessories;\r\n"
+        }
+    ]
+}

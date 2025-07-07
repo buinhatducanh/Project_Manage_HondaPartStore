@@ -1,0 +1,18 @@
+{
+    "sourceFile": "components/ImageUpload.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1739364425723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1739364425723,
+            "name": "Commit-0",
+            "content": "import { useState } from \"react\";\r\nimport axios from \"axios\";\r\n\r\nconst ImageUpload = ({ productId }) => {\r\n  const [selectedFiles, setSelectedFiles] = useState([]);\r\n  const [imageUrls, setImageUrls] = useState([]);\r\n\r\n  // Xử lý khi chọn nhiều file\r\n  const handleFileChange = (event) => {\r\n    setSelectedFiles(event.target.files);\r\n  };\r\n\r\n  // Gửi file lên server\r\n  const handleUpload = async () => {\r\n    if (!selectedFiles.length) {\r\n      alert(\"Vui lòng chọn ảnh!\");\r\n      return;\r\n    }\r\n\r\n    const formData = new FormData();\r\n    for (let file of selectedFiles) {\r\n      formData.append(\"images\", file);\r\n    }\r\n\r\n    try {\r\n      // Gửi ảnh lên Cloudinary\r\n      const uploadRes = await axios.post(\"http://localhost:5000/api/upload-multiple\", formData, {\r\n        headers: { \"Content-Type\": \"multipart/form-data\" },\r\n      });\r\n\r\n      const imageIds = uploadRes.data.imageIds; // Lấy ID ảnh\r\n\r\n      // Gửi danh sách ID ảnh vào sản phẩm\r\n      await axios.post(`http://localhost:5000/api/product/${productId}/add-images`, { imageIds });\r\n\r\n      setImageUrls([...imageUrls, ...imageIds]);\r\n      alert(\"Upload thành công!\");\r\n    } catch (error) {\r\n      console.error(\"Lỗi khi upload ảnh:\", error);\r\n      alert(\"Upload thất bại!\");\r\n    }\r\n  };\r\n\r\n  return (\r\n    <div>\r\n      <h2>Upload Ảnh Sản Phẩm</h2>\r\n      <input type=\"file\" multiple onChange={handleFileChange} accept=\"image/*\" />\r\n      <button onClick={handleUpload}>Tải lên</button>\r\n\r\n      <div>\r\n        <h3>Ảnh đã tải lên:</h3>\r\n        {imageUrls.map((url, index) => (\r\n          <img key={index} src={url} alt={`Uploaded ${index}`} style={{ width: \"100px\", margin: \"5px\" }} />\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default ImageUpload;\r\n"
+        }
+    ]
+}

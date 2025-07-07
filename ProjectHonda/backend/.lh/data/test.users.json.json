@@ -1,0 +1,18 @@
+{
+    "sourceFile": "data/test.users.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1739377829348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1739377829348,
+            "name": "Commit-0",
+            "content": "[\r\n    {\r\n      \"name\": \"Admin User\",\r\n      \"numberphone\": 1234567890,\r\n      \"email\": \"admin@example.com\",\r\n      \"password\": \"$2a$10$abcdefg1234567890hashed\", \r\n      \"role\": \"admin\"\r\n    },\r\n    {\r\n      \"name\": \"Employee User\",\r\n      \"numberphone\": 9876543210,\r\n      \"email\": \"employee@example.com\",\r\n      \"password\": \"$2a$10$1234567890abcdefghashed\",\r\n      \"role\": \"customer\"\r\n    }\r\n  ]\r\n  "
+        }
+    ]
+}

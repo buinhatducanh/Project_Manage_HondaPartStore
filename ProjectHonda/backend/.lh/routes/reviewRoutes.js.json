@@ -1,0 +1,30 @@
+{
+    "sourceFile": "routes/reviewRoutes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1738064387630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738064468861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require(\"express\");\r\n const router = express.Router();\r\n-const Review = require(\"../models/review\");\r\n+const Review = require(\"./models/Review\");\r\n \r\n // CREATE: Thêm đánh giá mới\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n"
+                },
+                {
+                    "date": 1738064497035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,26 @@\n+const express = require(\"express\");\r\n+const router = express.Router();\r\n+const Review = require(\"./models/Review.js\");\r\n+\r\n+// CREATE: Thêm đánh giá mới\r\n+router.post(\"/\", async (req, res) => {\r\n+  try {\r\n+    const review = new Review(req.body);\r\n+    await review.save();\r\n+    res.status(201).json(review);\r\n+  } catch (err) {\r\n+    res.status(400).json({ message: err.message });\r\n+  }\r\n+});\r\n+\r\n+// READ: Lấy tất cả đánh giá của một sản phẩm\r\n+router.get(\"/:productId\", async (req, res) => {\r\n+  try {\r\n+    const reviews = await Review.find({ product: req.params.productId });\r\n+    res.status(200).json(reviews);\r\n+  } catch (err) {\r\n+    res.status(500).json({ message: err.message });\r\n+  }\r\n+});\r\n+\r\n+module.exports = router;\r\n"
+                },
+                {
+                    "date": 1738064663993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require(\"express\");\r\n const router = express.Router();\r\n-const Review = require(\"./models/Review.js\");\r\n+const Review = require(\"../models/Review.js\");\r\n \r\n // CREATE: Thêm đánh giá mới\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n@@ -23,30 +23,4 @@\n   }\r\n });\r\n \r\n module.exports = router;\r\n-const express = require(\"express\");\r\n-const router = express.Router();\r\n-const Review = require(\"./models/Review\");\r\n-\r\n-// CREATE: Thêm đánh giá mới\r\n-router.post(\"/\", async (req, res) => {\r\n-  try {\r\n-    const review = new Review(req.body);\r\n-    await review.save();\r\n-    res.status(201).json(review);\r\n-  } catch (err) {\r\n-    res.status(400).json({ message: err.message });\r\n-  }\r\n-});\r\n-\r\n-// READ: Lấy tất cả đánh giá của một sản phẩm\r\n-router.get(\"/:productId\", async (req, res) => {\r\n-  try {\r\n-    const reviews = await Review.find({ product: req.params.productId });\r\n-    res.status(200).json(reviews);\r\n-  } catch (err) {\r\n-    res.status(500).json({ message: err.message });\r\n-  }\r\n-});\r\n-\r\n-module.exports = router;\r\n"
+                }
+            ],
+            "date": 1738064387630,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst router = express.Router();\r\nconst Review = require(\"../models/review\");\r\n\r\n// CREATE: Thêm đánh giá mới\r\nrouter.post(\"/\", async (req, res) => {\r\n  try {\r\n    const review = new Review(req.body);\r\n    await review.save();\r\n    res.status(201).json(review);\r\n  } catch (err) {\r\n    res.status(400).json({ message: err.message });\r\n  }\r\n});\r\n\r\n// READ: Lấy tất cả đánh giá của một sản phẩm\r\nrouter.get(\"/:productId\", async (req, res) => {\r\n  try {\r\n    const reviews = await Review.find({ product: req.params.productId });\r\n    res.status(200).json(reviews);\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n});\r\n\r\nmodule.exports = router;\r\n"
+        }
+    ]
+}

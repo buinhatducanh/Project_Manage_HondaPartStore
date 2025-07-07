@@ -1,0 +1,22 @@
+{
+    "sourceFile": "config/cloudinary.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738999094018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738999384265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n const cloudinary = require(\"cloudinary\").v2;\r\n-require(\"dotenv\").config();\r\n+require(\"dotenv\").config(); // Load biến môi trường từ .env\r\n \r\n+// Cấu hình Cloudinary\r\n cloudinary.config({\r\n   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,\r\n   api_key: process.env.CLOUDINARY_API_KEY,\r\n   api_secret: process.env.CLOUDINARY_API_SECRET,\r\n"
+                }
+            ],
+            "date": 1738999094018,
+            "name": "Commit-0",
+            "content": "const cloudinary = require(\"cloudinary\").v2;\r\nrequire(\"dotenv\").config();\r\n\r\ncloudinary.config({\r\n  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,\r\n  api_key: process.env.CLOUDINARY_API_KEY,\r\n  api_secret: process.env.CLOUDINARY_API_SECRET,\r\n});\r\n\r\nmodule.exports = cloudinary;\r\n"
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "sourceFile": "routes/imageRoutes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1738927178547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738927224029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const express = require(\"express\");\r\n-const upload = require(\"../middleware/uploadMiddleware\");\r\n+const upload = require(\"../middleware/upload\");\r\n const { uploadImage, getImagesByProduct, deleteImage } = require(\"../controllers/imageController\");\r\n \r\n const router = express.Router();\r\n \r\n"
+                },
+                {
+                    "date": 1738999129787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n const express = require(\"express\");\r\n-const upload = require(\"../middleware/upload\");\r\n-const { uploadImage, getImagesByProduct, deleteImage } = require(\"../controllers/imageController\");\r\n+const upload = require(\"../middleware/uploadMiddleware\");\r\n+const { uploadImage } = require(\"../controllers/imageController\");\r\n \r\n const router = express.Router();\r\n \r\n router.post(\"/upload\", upload.single(\"image\"), uploadImage);\r\n-router.get(\"/:productId\", getImagesByProduct);\r\n-router.delete(\"/:id\", deleteImage);\r\n \r\n module.exports = router;\r\n"
+                },
+                {
+                    "date": 1739000235112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+const express = require(\"express\");\r\n+const upload = require(\"../middleware/uploadMiddleware\");\r\n+const router = express.Router();\r\n+\r\n+router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n+  try {\r\n+    res.status(201).json({ \r\n+      message: \"Ảnh tải lên thành công!\", \r\n+      imageUrl: req.file.path, // Đường dẫn ảnh trên Cloudinary\r\n+    });\r\n+  } catch (err) {\r\n+    res.status(500).json({ message: err.message });\r\n+  }\r\n+});\r\n+\r\n+module.exports = router;\r\n"
+                },
+                {
+                    "date": 1739000371495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+const express = require(\"express\");\r\n+const upload = require(\"../middleware/uploadMiddleware\");\r\n+const router = express.Router();\r\n+\r\n+router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n+  try {\r\n+    res.status(201).json({ \r\n+      message: \"Ảnh tải lên thành công!\", \r\n+      imageUrl: req.file.path, // Đường dẫn ảnh trên Cloudinary\r\n+    });\r\n+  } catch (err) {\r\n+    res.status(500).json({ message: err.message });\r\n+  }\r\n+});\r\n+\r\n+module.exports = router;\r\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1739000378092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const express = require(\"express\");\r\n-const upload = require(\"../middleware/uploadMiddleware\");\r\n+const upload = require(\"../middleware/upload\");\r\n const router = express.Router();\r\n \r\n router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n   try {\r\n@@ -13,30 +13,5 @@\n   }\r\n });\r\n \r\n module.exports = router;\r\n-    \n-const express = require(\"express\");\r\n-const upload = require(\"../middleware/uploadMiddleware\");\r\n-const router = express.Router();\r\n-\r\n-router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n-  try {\r\n-    res.status(201).json({ \r\n-      message: \"Ảnh tải lên thành công!\", \r\n-      imageUrl: req.file.path, // Đường dẫn ảnh trên Cloudinary\r\n-    });\r\n-  } catch (err) {\r\n-    res.status(500).json({ message: err.message });\r\n-  }\r\n-});\r\n-\r\n-module.exports = router;\r\n-const express = require(\"express\");\r\n-const upload = require(\"../middleware/uploadMiddleware\");\r\n-const { uploadImage } = require(\"../controllers/imageController\");\r\n-\r\n-const router = express.Router();\r\n-\r\n-router.post(\"/upload\", upload.single(\"image\"), uploadImage);\r\n-\r\n-module.exports = router;\n\\ No newline at end of file\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1739008960551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n const express = require(\"express\");\r\n const upload = require(\"../middleware/upload\");\r\n+const Image = require(\"../models/Image\");\r\n const router = express.Router();\r\n \r\n router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n   try {\r\n@@ -12,6 +13,18 @@\n     res.status(500).json({ message: err.message });\r\n   }\r\n });\r\n \r\n+\r\n+// CREATE: Thêm mới sản phẩm\r\n+router.post(\"/\", async (req, res) => {\r\n+  try {\r\n+    const image = new Image(req.body);\r\n+    await image.save();\r\n+    res.status(201).json(image);\r\n+  } catch (err) {\r\n+    res.status(400).json({ message: err.message });\r\n+  }\r\n+});\r\n+\r\n module.exports = router;\r\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1739377573794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n const express = require(\"express\");\r\n const upload = require(\"../middleware/upload\");\r\n-const Image = require(\"../models/Image\");\r\n const router = express.Router();\r\n \r\n router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n   try {\r\n@@ -14,17 +13,6 @@\n   }\r\n });\r\n \r\n \r\n-// CREATE: Thêm mới sản phẩm\r\n-router.post(\"/\", async (req, res) => {\r\n-  try {\r\n-    const image = new Image(req.body);\r\n-    await image.save();\r\n-    res.status(201).json(image);\r\n-  } catch (err) {\r\n-    res.status(400).json({ message: err.message });\r\n-  }\r\n-});\r\n-\r\n module.exports = router;\r\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1739808786178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-const express = require(\"express\");\r\n const upload = require(\"../middleware/upload\");\r\n const router = express.Router();\r\n \r\n router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n@@ -12,7 +11,5 @@\n     res.status(500).json({ message: err.message });\r\n   }\r\n });\r\n \r\n-\r\n module.exports = router;\r\n-    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1739808792700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+const express = require(\"express\");\r\n const upload = require(\"../middleware/upload\");\r\n const router = express.Router();\r\n \r\n router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n@@ -11,5 +12,7 @@\n     res.status(500).json({ message: err.message });\r\n   }\r\n });\r\n \r\n+\r\n module.exports = router;\r\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1739808907630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,34 @@\n const express = require(\"express\");\r\n const upload = require(\"../middleware/upload\");\r\n+const Image = require(\"../models/Image\");\r\n+const Product = require(\"../models/Product\");\r\n const router = express.Router();\r\n \r\n-router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n+router.post(\"/upload\", upload.single(\"image\"), async (req, res) => {\r\n   try {\r\n-    res.status(201).json({ \r\n-      message: \"Ảnh tải lên thành công!\", \r\n-      imageUrl: req.file.path, // Đường dẫn ảnh trên Cloudinary\r\n+    const { productId } = req.body;\r\n+\r\n+    // Kiểm tra ID sản phẩm\r\n+    if (!productId) return res.status(400).json({ message: \"Cần có ID sản phẩm\" });\r\n+\r\n+    // Tìm sản phẩm trong cơ sở dữ liệu\r\n\\ No newline at end of file\n+    const product = await Product.findById(productId);\r\n+    if (!product) return res.status(404).json({ message: \"Không tìm thấy sản phẩm\" });\r\n+\r\n+    // Lưu thông tin ảnh vào MongoDB\r\n+    const image = new Image({\r\n+      product: productId,\r\n+      url: req.file.path, // Lấy URL ảnh từ Cloudinary\r\n     });\r\n+\r\n+    // Lưu ảnh vào cơ sở dữ liệu\r\n+    await image.save();\r\n+\r\n+    // Trả về kết quả thành công\r\n+    res.status(201).json({ message: \"Ảnh tải lên thành công\", image });\r\n   } catch (err) {\r\n     res.status(500).json({ message: err.message });\r\n   }\r\n });\r\n \r\n-\r\n module.exports = router;\r\n-    \n"
+                },
+                {
+                    "date": 1739809067943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,34 +1,18 @@\n const express = require(\"express\");\r\n const upload = require(\"../middleware/upload\");\r\n-const Image = require(\"../models/Image\");\r\n-const Product = require(\"../models/Product\");\r\n const router = express.Router();\r\n \r\n-router.post(\"/upload\", upload.single(\"image\"), async (req, res) => {\r\n+router.post(\"/upload\", upload.single(\"image\"), (req, res) => {\r\n   try {\r\n-    const { productId } = req.body;\r\n-\r\n-    // Kiểm tra ID sản phẩm\r\n-    if (!productId) return res.status(400).json({ message: \"Cần có ID sản phẩm\" });\r\n-\r\n-    // Tìm sản phẩm trong cơ sở dữ liệu\r\n-    const product = await Product.findById(productId);\r\n-    if (!product) return res.status(404).json({ message: \"Không tìm thấy sản phẩm\" });\r\n-\r\n-    // Lưu thông tin ảnh vào MongoDB\r\n-    const image = new Image({\r\n-      product: productId,\r\n-      url: req.file.path, // Lấy URL ảnh từ Cloudinary\r\n+    res.status(201).json({ \r\n+      message: \"Ảnh tải lên thành công!\", \r\n+      imageUrl: req.file.path, // Đường dẫn ảnh trên Cloudinary\r\n     });\r\n-\r\n-    // Lưu ảnh vào cơ sở dữ liệu\r\n-    await image.save();\r\n-\r\n-    // Trả về kết quả thành công\r\n-    res.status(201).json({ message: \"Ảnh tải lên thành công\", image });\r\n   } catch (err) {\r\n     res.status(500).json({ message: err.message });\r\n\\ No newline at end of file\n   }\r\n });\r\n \r\n-module.exports = router;\n+\r\n+module.exports = router;\r\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1739942338064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,8 @@\n   } catch (err) {\r\n     res.status(500).json({ message: err.message });\r\n   }\r\n });\r\n+u\r\n \r\n-\r\n module.exports = router;\r\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1739942394174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,7 @@\n   } catch (err) {\r\n     res.status(500).json({ message: err.message });\r\n   }\r\n });\r\n-u\r\n \r\n module.exports = router;\r\n     \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1738927178547,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst upload = require(\"../middleware/uploadMiddleware\");\r\nconst { uploadImage, getImagesByProduct, deleteImage } = require(\"../controllers/imageController\");\r\n\r\nconst router = express.Router();\r\n\r\nrouter.post(\"/upload\", upload.single(\"image\"), uploadImage);\r\nrouter.get(\"/:productId\", getImagesByProduct);\r\nrouter.delete(\"/:id\", deleteImage);\r\n\r\nmodule.exports = router;\r\n"
+        }
+    ]
+}

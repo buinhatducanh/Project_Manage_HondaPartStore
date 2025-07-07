@@ -1,0 +1,18 @@
+{
+    "sourceFile": "components/Admin.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1739376839849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1739376839849,
+            "name": "Commit-0",
+            "content": "import React, { useState } from \"react\";\r\n\r\nconst AdminProducts = () => {\r\n  const [products, setProducts] = useState([\r\n    { id: 1, name: \"Lốp xe Honda\", price: \"500,000 VND\", stock: 10 },\r\n    { id: 2, name: \"Phanh đĩa Honda\", price: \"300,000 VND\", stock: 5 },\r\n  ]);\r\n  const [newProduct, setNewProduct] = useState({ name: \"\", price: \"\", stock: \"\" });\r\n\r\n  const handleAddProduct = () => {\r\n    if (!newProduct.name || !newProduct.price || !newProduct.stock) return;\r\n    setProducts([...products, { id: products.length + 1, ...newProduct }]);\r\n    setNewProduct({ name: \"\", price: \"\", stock: \"\" });\r\n  };\r\n\r\n  const handleDeleteProduct = (id) => {\r\n    setProducts(products.filter((product) => product.id !== id));\r\n  };\r\n\r\n  return (\r\n    <div className=\"container mx-auto p-6\">\r\n      <h1 className=\"text-2xl font-bold mb-4\">Quản lý Sản phẩm</h1>\r\n      <table className=\"w-full border border-collapse border-gray-300\">\r\n        <thead>\r\n          <tr className=\"bg-gray-200\">\r\n            <th className=\"border p-2\">ID</th>\r\n            <th className=\"border p-2\">Tên sản phẩm</th>\r\n            <th className=\"border p-2\">Giá</th>\r\n            <th className=\"border p-2\">Kho hàng</th>\r\n            <th className=\"border p-2\">Hành động</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          {products.map((product) => (\r\n            <tr key={product.id} className=\"text-center\">\r\n              <td className=\"border p-2\">{product.id}</td>\r\n              <td className=\"border p-2\">{product.name}</td>\r\n              <td className=\"border p-2\">{product.price}</td>\r\n              <td className=\"border p-2\">{product.stock}</td>\r\n              <td className=\"border p-2\">\r\n                <button\r\n                  onClick={() => handleDeleteProduct(product.id)}\r\n                  className=\"bg-red-500 text-white px-2 py-1 rounded\"\r\n                >\r\n                  Xóa\r\n                </button>\r\n              </td>\r\n            </tr>\r\n          ))}\r\n        </tbody>\r\n      </table>\r\n      <div className=\"mt-4\">\r\n        <input\r\n          type=\"text\"\r\n          placeholder=\"Tên sản phẩm\"\r\n          value={newProduct.name}\r\n          onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}\r\n          className=\"border p-2 mr-2\"\r\n        />\r\n        <input\r\n          type=\"text\"\r\n          placeholder=\"Giá\"\r\n          value={newProduct.price}\r\n          onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}\r\n          className=\"border p-2 mr-2\"\r\n        />\r\n        <input\r\n          type=\"number\"\r\n          placeholder=\"Kho hàng\"\r\n          value={newProduct.stock}\r\n          onChange={(e) => setNewProduct({ ...newProduct, stock: e.target.value })}\r\n          className=\"border p-2 mr-2\"\r\n        />\r\n        <button\r\n          onClick={handleAddProduct}\r\n          className=\"bg-blue-500 text-white px-4 py-2 rounded\"\r\n        >\r\n          Thêm sản phẩm\r\n        </button>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default AdminProducts;\r\n"
+        }
+    ]
+}

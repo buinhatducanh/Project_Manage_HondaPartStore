@@ -1,0 +1,22 @@
+{
+    "sourceFile": "models/Motorcycle_Company.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738755064207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738757569231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,5 @@\n     type: String \r\n   }\r\n }, { timestamps: true });\r\n \r\n-module.exports = mongoose.model(\"Category\", categorySchema);\r\n+module.exports = mongoose.model(\"Motorcycle\", motorcycleSchema);\r\n"
+                }
+            ],
+            "date": 1738755064207,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\n\r\nconst motorcycleSchema = new mongoose.Schema({\r\n  name: { \r\n    type: String, \r\n    required: true, \r\n    unique: true  // Đảm bảo mỗi phân loại là duy nhất\r\n  },\r\n  description: { \r\n    type: String \r\n  }\r\n}, { timestamps: true });\r\n\r\nmodule.exports = mongoose.model(\"Category\", categorySchema);\r\n"
+        }
+    ]
+}

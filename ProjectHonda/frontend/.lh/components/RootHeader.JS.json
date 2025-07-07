@@ -1,0 +1,50 @@
+{
+    "sourceFile": "components/RootHeader.JS",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1738752368206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738752400525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import React, { useState } from \"react\";\r\n+import { FaPhoneAlt } from \"react-icons/fa\";\r\n+import { useRouter } from \"next/router\"; // Import useRouter\r\n+\r\n+export default function Header() {\r\n+    return (\r\n+        <header className=\"w-full bg-[url('/images/headerMoto.png')] bg-cover bg-center text-white\">\r\n+        \r\n+        </header>\r\n+    );\r\n+}\r\n"
+                },
+                {
+                    "date": 1738752412083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n import React, { useState } from \"react\";\r\n import { FaPhoneAlt } from \"react-icons/fa\";\r\n import { useRouter } from \"next/router\"; // Import useRouter\r\n \r\n-export default function Header() {\r\n+export default function RootHeader() {\r\n     return (\r\n-        <header className=\"w-full bg-[url('/images/headerMoto.png')] bg-cover bg-center text-white\">\r\n+        <div className=\"w-full bg-[url('/images/headerMoto.png')] bg-cover bg-center text-white\">\r\n         \r\n-        </header>\r\n+        </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1738752419684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import React, { useState } from \"react\";\r\n-import { FaPhoneAlt } from \"react-icons/fa\";\r\n import { useRouter } from \"next/router\"; // Import useRouter\r\n \r\n export default function RootHeader() {\r\n     return (\r\n"
+                },
+                {
+                    "date": 1738752540286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,8 @@\n \r\n export default function RootHeader() {\r\n     return (\r\n         <div className=\"w-full bg-[url('/images/headerMoto.png')] bg-cover bg-center text-white\">\r\n-        \r\n+                ssss\r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1738752547133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { useRouter } from \"next/router\"; // Import useRouter\r\n \r\n export default function RootHeader() {\r\n     return (\r\n-        <div className=\"w-full bg-[url('/images/headerMoto.png')] bg-cover bg-center text-white\">\r\n-                ssss\r\n+        <div className=\"\">\r\n+                \r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1738752586636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { useRouter } from \"next/router\"; // Import useRouter\r\n \r\n export default function RootHeader() {\r\n     return (\r\n-        <div className=\"\">\r\n+        <div className=\"relative flex justify-between items-center\">\r\n                 \r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1738752965198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,8 @@\n \r\n export default function RootHeader() {\r\n     return (\r\n         <div className=\"relative flex justify-between items-center\">\r\n-                \r\n+                div\r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1738753038476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React, { useState } from \"react\";\r\n+\r\n+export default function Root() {\r\n+    return (\r\n+        <div className=\"relative flex justify-between items-center\">\r\n+                div\r\n+        </div>\r\n+    );\r\n+}\r\n"
+                }
+            ],
+            "date": 1738752368206,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}

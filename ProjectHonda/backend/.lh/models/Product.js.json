@@ -1,0 +1,74 @@
+{
+    "sourceFile": "models/Product.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1738055997013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738059846244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,4 +9,5 @@\n   image: { type: String }, // URL hình ảnh\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Product\", productSchema);\r\n+\r\n"
+                },
+                {
+                    "date": 1738064146284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,4 @@\n   image: { type: String }, // URL hình ảnh\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Product\", productSchema);\r\n-\r\n"
+                },
+                {
+                    "date": 1738519170647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,15 @@\n \r\n const productSchema = new mongoose.Schema({\r\n   name: { type: String, required: true },\r\n   brand: { type: String, default: \"Honda\" },\r\n+  categories: [\r\n+    { \r\n+      type: mongoose.Schema.Types.ObjectId,  // Lưu ID của category\r\n+      ref: \"Category\",  // Liên kết với collection Category\r\n+      required: true,\r\n+    }\r\n+  ],\r\n   price: { type: Number, required: true },\r\n   quantity: { type: Number, default: 0 },\r\n   description: { type: String },\r\n   image: { type: String }, // URL hình ảnh\r\n"
+                },
+                {
+                    "date": 1738586798861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const productSchema = new mongoose.Schema({\r\n+  code: { type: String, required: true, unique: true }, // Mã sản phẩm\r\n   name: { type: String, required: true },\r\n   brand: { type: String, default: \"Honda\" },\r\n   categories: [\r\n     { \r\n@@ -9,11 +10,18 @@\n       ref: \"Category\",  // Liên kết với collection Category\r\n       required: true,\r\n     }\r\n   ],\r\n+  madein: { type: String },\r\n   price: { type: Number, required: true },\r\n   quantity: { type: Number, default: 0 },\r\n   description: { type: String },\r\n   image: { type: String }, // URL hình ảnh\r\n+  additionalInfo: {  // Thông tin thêm sản phẩm\r\n+    weight: { type: Number, default: 0 }, // Trọng lượng (g)\r\n+    length: { type: Number, default: 0 }, // Chiều dài (mm)\r\n+    width: { type: Number, default: 0 },  // Chiều rộng (mm)\r\n+    height: { type: Number, default: 0 }, // Chiều cao (mm)\r\n+  }\r\n }, { timestamps: true });\r\n \r\n module.exports = mongoose.model(\"Product\", productSchema);\r\n"
+                },
+                {
+                    "date": 1738586854191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const mongoose = require(\"mongoose\");\r\n \r\n const productSchema = new mongoose.Schema({\r\n-  code: { type: String, required: true, unique: true }, // Mã sản phẩm\r\n+  code: { type: String, required: true }, // Mã sản phẩm\r\n   name: { type: String, required: true },\r\n   brand: { type: String, default: \"Honda\" },\r\n   categories: [\r\n     { \r\n"
+                },
+                {
+                    "date": 1738859819481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,18 @@\n \r\n const productSchema = new mongoose.Schema({\r\n   code: { type: String, required: true }, // Mã sản phẩm\r\n   name: { type: String, required: true },\r\n-  brand: { type: String, default: \"Honda\" },\r\n+  brand:\r\n+    [\r\n+      {\r\n+        type: mongoose.Schema.Types.ObjectId,  // Lưu ID của hãng xe\r\n+        ref: \"Brand\",  // Liên kết với collection Category\r\n+        required: true,\r\n+      }\r\n+    ],\r\n   categories: [\r\n-    { \r\n+    {\r\n       type: mongoose.Schema.Types.ObjectId,  // Lưu ID của category\r\n       ref: \"Category\",  // Liên kết với collection Category\r\n       required: true,\r\n     }\r\n"
+                },
+                {
+                    "date": 1738931733463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,44 @@\n+const mongoose = require(\"mongoose\");\r\n+\r\n+const productSchema = new mongoose.Schema(\r\n+  {\r\n+    code: { type: String, required: true }, // Mã sản phẩm\r\n+    name: { type: String, required: true },\r\n+    brand: [\r\n+      {\r\n+        type: mongoose.Schema.Types.ObjectId, // Lưu ID của hãng xe\r\n+        ref: \"Brand\", // Liên kết với collection Brand\r\n+        required: true,\r\n+      },\r\n+    ],\r\n+    categories: [\r\n+      {\r\n+        type: mongoose.Schema.Types.ObjectId, // Lưu ID của category\r\n+        ref: \"Category\", // Liên kết với collection Category\r\n+        required: true,\r\n+      },\r\n+    ],\r\n+    madein: { type: String },\r\n+    price: { type: Number, required: true },\r\n+    quantity: { type: Number, default: 0 },\r\n+    description: { type: String },\r\n+\r\n+    // Thay đổi chỗ này: Từ lưu 1 URL sang mảng chứa nhiều ID ảnh\r\n+    images: [\r\n+      {\r\n+        type: mongoose.Schema.Types.ObjectId,\r\n+        ref: \"Image\", // Liên kết với collection Image\r\n+      },\r\n+    ],\r\n+\r\n+    additionalInfo: {\r\n+      weight: { type: Number, default: 0 }, // Trọng lượng (g)\r\n+      length: { type: Number, default: 0 }, // Chiều dài (mm)\r\n+      width: { type: Number, default: 0 }, // Chiều rộng (mm)\r\n+      height: { type: Number, default: 0 }, // Chiều cao (mm)\r\n+    },\r\n+  },\r\n+  { timestamps: true }\r\n+);\r\n+\r\n+module.exports = mongoose.model(\"Product\", productSchema);\r\n"
+                },
+                {
+                    "date": 1739377507463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,17 +21,9 @@\n     madein: { type: String },\r\n     price: { type: Number, required: true },\r\n     quantity: { type: Number, default: 0 },\r\n     description: { type: String },\r\n-\r\n-    // Thay đổi chỗ này: Từ lưu 1 URL sang mảng chứa nhiều ID ảnh\r\n-    images: [\r\n-      {\r\n-        type: mongoose.Schema.Types.ObjectId,\r\n-        ref: \"Image\", // Liên kết với collection Image\r\n-      },\r\n-    ],\r\n-\r\n+    image: { type: String, default: \"https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg\" },\r\n     additionalInfo: {\r\n       weight: { type: Number, default: 0 }, // Trọng lượng (g)\r\n       length: { type: Number, default: 0 }, // Chiều dài (mm)\r\n       width: { type: Number, default: 0 }, // Chiều rộng (mm)\r\n@@ -41,38 +33,4 @@\n   { timestamps: true }\r\n );\r\n \r\n module.exports = mongoose.model(\"Product\", productSchema);\r\n-const mongoose = require(\"mongoose\");\r\n-\r\n-const productSchema = new mongoose.Schema({\r\n-  code: { type: String, required: true }, // Mã sản phẩm\r\n-  name: { type: String, required: true },\r\n-  brand:\r\n-    [\r\n-      {\r\n-        type: mongoose.Schema.Types.ObjectId,  // Lưu ID của hãng xe\r\n-        ref: \"Brand\",  // Liên kết với collection Category\r\n-        required: true,\r\n-      }\r\n-    ],\r\n-  categories: [\r\n-    {\r\n-      type: mongoose.Schema.Types.ObjectId,  // Lưu ID của category\r\n-      ref: \"Category\",  // Liên kết với collection Category\r\n-      required: true,\r\n-    }\r\n-  ],\r\n-  madein: { type: String },\r\n-  price: { type: Number, required: true },\r\n-  quantity: { type: Number, default: 0 },\r\n-  description: { type: String },\r\n-  image: { type: String }, // URL hình ảnh\r\n-  additionalInfo: {  // Thông tin thêm sản phẩm\r\n-    weight: { type: Number, default: 0 }, // Trọng lượng (g)\r\n-    length: { type: Number, default: 0 }, // Chiều dài (mm)\r\n-    width: { type: Number, default: 0 },  // Chiều rộng (mm)\r\n-    height: { type: Number, default: 0 }, // Chiều cao (mm)\r\n-  }\r\n-}, { timestamps: true });\r\n-\r\n-module.exports = mongoose.model(\"Product\", productSchema);\r\n"
+                },
+                {
+                    "date": 1739799601374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,27 +3,28 @@\n const productSchema = new mongoose.Schema(\r\n   {\r\n     code: { type: String, required: true }, // Mã sản phẩm\r\n     name: { type: String, required: true },\r\n-    brand: [\r\n-      {\r\n-        type: mongoose.Schema.Types.ObjectId, // Lưu ID của hãng xe\r\n-        ref: \"Brand\", // Liên kết với collection Brand\r\n-        required: true,\r\n-      },\r\n-    ],\r\n+    brand: { \r\n+      type: mongoose.Schema.Types.ObjectId, // Chỉ lưu 1 ID của hãng\r\n+      ref: \"Brand\", \r\n+      required: true \r\n+    },\r\n     categories: [\r\n       {\r\n-        type: mongoose.Schema.Types.ObjectId, // Lưu ID của category\r\n-        ref: \"Category\", // Liên kết với collection Category\r\n+        type: mongoose.Schema.Types.ObjectId, // Lưu danh sách ID của category\r\n+        ref: \"Category\", \r\n         required: true,\r\n       },\r\n     ],\r\n     madein: { type: String },\r\n     price: { type: Number, required: true },\r\n     quantity: { type: Number, default: 0 },\r\n     description: { type: String },\r\n-    image: { type: String, default: \"https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg\" },\r\n+    image: { \r\n+      type: [String],  // Chuyển thành mảng để chứa nhiều ảnh\r\n+      default: [\"https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg\"] \r\n+    },\r\n     additionalInfo: {\r\n       weight: { type: Number, default: 0 }, // Trọng lượng (g)\r\n       length: { type: Number, default: 0 }, // Chiều dài (mm)\r\n       width: { type: Number, default: 0 }, // Chiều rộng (mm)\r\n"
+                },
+                {
+                    "date": 1739804257787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n         ref: \"Category\", \r\n         required: true,\r\n       },\r\n     ],\r\n-    madein: { type: String },\r\n     price: { type: Number, required: true },\r\n     quantity: { type: Number, default: 0 },\r\n     description: { type: String },\r\n     image: { \r\n"
+                },
+                {
+                    "date": 1740481052913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n     name: { type: String, required: true },\r\n     brand: { \r\n       type: mongoose.Schema.Types.ObjectId, // Chỉ lưu 1 ID của hãng\r\n       ref: \"Brand\", \r\n-      required: true \r\n     },\r\n     categories: [\r\n       {\r\n         type: mongoose.Schema.Types.ObjectId, // Lưu danh sách ID của category\r\n"
+                },
+                {
+                    "date": 1741570872277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     quantity: { type: Number, default: 0 },\r\n     description: { type: String },\r\n     image: { \r\n       type: [String],  // Chuyển thành mảng để chứa nhiều ảnh\r\n-      default: [\"https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg\"] \r\n+      default: [\"https://res.cloudinary.com/dmz66rbbk/image/upload/v1741570849/empty_dhtk5e.jpg\"] \r\n     },\r\n     additionalInfo: {\r\n       weight: { type: Number, default: 0 }, // Trọng lượng (g)\r\n       length: { type: Number, default: 0 }, // Chiều dài (mm)\r\n"
+                },
+                {
+                    "date": 1741572302942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     quantity: { type: Number, default: 0 },\r\n     description: { type: String },\r\n     image: { \r\n       type: [String],  // Chuyển thành mảng để chứa nhiều ảnh\r\n-      default: [\"https://res.cloudinary.com/dmz66rbbk/image/upload/v1741570849/empty_dhtk5e.jpg\"] \r\n+      default: [\"https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg\"] \r\n     },\r\n     additionalInfo: {\r\n       weight: { type: Number, default: 0 }, // Trọng lượng (g)\r\n       length: { type: Number, default: 0 }, // Chiều dài (mm)\r\n"
+                },
+                {
+                    "date": 1743844751046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,21 @@\n     price: { type: Number, required: true },\r\n     quantity: { type: Number, default: 0 },\r\n     description: { type: String },\r\n     image: { \r\n-      type: [String],  // Chuyển thành mảng để chứa nhiều ảnh\r\n-      default: [\"https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg\"] \r\n+      // Mảng chứa các đối tượng với thông tin url và public_id của Cloudinary\r\n+      type: [\r\n+        {\r\n+          url: { type: String, required: true },\r\n+          public_id: { type: String, required: true }\r\n+        }\r\n+      ],\r\n+      default: [\r\n+        {\r\n+          url: \"https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg\",\r\n+          public_id: \"empty_cpvono\"\r\n+        }\r\n+      ] \r\n     },\r\n     additionalInfo: {\r\n       weight: { type: Number, default: 0 }, // Trọng lượng (g)\r\n       length: { type: Number, default: 0 }, // Chiều dài (mm)\r\n"
+                }
+            ],
+            "date": 1738055997013,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\n\r\nconst productSchema = new mongoose.Schema({\r\n  name: { type: String, required: true },\r\n  brand: { type: String, default: \"Honda\" },\r\n  price: { type: Number, required: true },\r\n  quantity: { type: Number, default: 0 },\r\n  description: { type: String },\r\n  image: { type: String }, // URL hình ảnh\r\n}, { timestamps: true });\r\n\r\nmodule.exports = mongoose.model(\"Product\", productSchema);\r\n"
+        }
+    ]
+}

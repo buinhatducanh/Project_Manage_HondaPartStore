@@ -1,0 +1,18 @@
+{
+    "sourceFile": "pages/admin/products.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741339963812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741339963812,
+            "name": "Commit-0",
+            "content": "\r\nimport withAuth from \"../../utils/withAuth\";\r\nimport AdminProducts from \"../../components/AdminProducts\";\r\n\r\nconst ProductPage = () => {\r\n\r\n  return (\r\n    <div className=\"min-h-screen bg-gray-100\">\r\n      <div className={`container p-6 transition-all duration-300`}>\r\n        <div className=\"h-[200vh]\"> {/* Tạo nội dung dài để dễ thử nghiệm */}\r\n          <AdminProducts />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default withAuth(ProductPage, [\"admin\"]);\r\n"
+        }
+    ]
+}

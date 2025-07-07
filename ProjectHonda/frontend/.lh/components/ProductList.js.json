@@ -1,0 +1,42 @@
+{
+    "sourceFile": "components/ProductList.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1741339136467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741339143469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import ProductItem from \"./ProductItem\";\r\n+export function ProductList({ products }) {\r\n+    return (\r\n+      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n+        <div className=\"flex p-4 snap-x snap-mandatory\">\r\n+          {products.map((product, index) => (\r\n+            <ProductItem key={index} {...product} />\r\n+          ))}\r\n+        </div>\r\n+      </div>\r\n+    );\r\n+  }\r\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741339151739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import ProductItem from \"./ProductItem\";\r\n+export function ProductList({ products }) {\r\n+    return (\r\n+      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n+        <div className=\"flex gap-4 p-4 snap-x \">\r\n+          {products.map((product, index) => (\r\n+            <ProductItem key={index} {...product} />\r\n+          ))}\r\n+        </div>\r\n+      </div>\r\n+    );\r\n+  }\r\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741339158158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import ProductItem from \"./ProductItem\";\r\n+export function ProductList({ products }) {\r\n+    return (\r\n+      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n+        <div className=\"flex gap-4 p-4 snap-x snap-mandatory\">\r\n+          {products.map((product, index) => (\r\n+            <ProductItem key={index} {...product} />\r\n+          ))}\r\n+        </div>\r\n+      </div>\r\n+    );\r\n+  }\r\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741339174270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import ProductItem from \"./ProductItem\";\r\n+export function ProductList({ products }) {\r\n+    return (\r\n+      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n+        <div className=\"flex gap-4 p-4 snap-x snap-mandatory\">\r\n+          {products.map((product, index) => (\r\n+            <ProductItem key={index} {...product} className=\"w-60px\"/>\r\n+          ))}\r\n+        </div>\r\n+      </div>\r\n+    );\r\n+  }\r\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741339179617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import ProductItem from \"./ProductItem\";\r\n+export function ProductList({ products }) {\r\n+    return (\r\n+      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n+        <div className=\"flex gap-4 p-4 snap-x snap-mandatory\">\r\n+          {products.map((product, index) => (\r\n+            <ProductItem key={index} {...product} className=\"w-[60px]\"/>\r\n+          ))}\r\n+        </div>\r\n+      </div>\r\n+    );\r\n+  }\r\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741339186939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,76 +3,11 @@\n     return (\r\n       <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n         <div className=\"flex gap-4 p-4 snap-x snap-mandatory\">\r\n           {products.map((product, index) => (\r\n-            <ProductItem key={index} {...product} className=\"w-[60px]\"/>\r\n+            <ProductItem key={index} {...product}/>\r\n           ))}\r\n         </div>\r\n       </div>\r\n     );\r\n   }\r\n-  \n-import ProductItem from \"./ProductItem\";\r\n-export function ProductList({ products }) {\r\n-    return (\r\n-      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n-        <div className=\"flex gap-4 p-4 snap-x snap-mandatory\">\r\n-          {products.map((product, index) => (\r\n-            <ProductItem key={index} {...product} className=\"w-60px\"/>\r\n-          ))}\r\n-        </div>\r\n-      </div>\r\n-    );\r\n-  }\r\n-  \n-import ProductItem from \"./ProductItem\";\r\n-export function ProductList({ products }) {\r\n-    return (\r\n-      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n-        <div className=\"flex gap-4 p-4 snap-x snap-mandatory\">\r\n-          {products.map((product, index) => (\r\n-            <ProductItem key={index} {...product} />\r\n-          ))}\r\n-        </div>\r\n-      </div>\r\n-    );\r\n-  }\r\n-  \n-import ProductItem from \"./ProductItem\";\r\n-export function ProductList({ products }) {\r\n-    return (\r\n-      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n-        <div className=\"flex gap-4 p-4 snap-x \">\r\n-          {products.map((product, index) => (\r\n-            <ProductItem key={index} {...product} />\r\n-          ))}\r\n-        </div>\r\n-      </div>\r\n-    );\r\n-  }\r\n-  \n-import ProductItem from \"./ProductItem\";\r\n-export function ProductList({ products }) {\r\n-    return (\r\n-      <div className=\"w-full overflow-x-auto whitespace-nowrap\">\r\n-        <div className=\"flex p-4 snap-x snap-mandatory\">\r\n-          {products.map((product, index) => (\r\n-            <ProductItem key={index} {...product} />\r\n-          ))}\r\n-        </div>\r\n-      </div>\r\n-    );\r\n-  }\r\n-  \n-import ProductItem from \"./ProductItem\";\r\n-export function ProductList({ products }) {\r\n-    return (\r\n-      <div className=\"w-full overflow-x-auto\">\r\n-        <div className=\"flex gap-4 p-4 snap-x snap-mandatory\">\r\n-          {products.map((product, index) => (\r\n-            <ProductItem key={index} {...product} />\r\n-          ))}\r\n-        </div>\r\n-      </div>\r\n-    );\r\n-  }\r\n   \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1741339136467,
+            "name": "Commit-0",
+            "content": "import ProductItem from \"./ProductItem\";\r\nexport function ProductList({ products }) {\r\n    return (\r\n      <div className=\"w-full overflow-x-auto\">\r\n        <div className=\"flex gap-4 p-4 snap-x snap-mandatory\">\r\n          {products.map((product, index) => (\r\n            <ProductItem key={index} {...product} />\r\n          ))}\r\n        </div>\r\n      </div>\r\n    );\r\n  }\r\n  "
+        }
+    ]
+}

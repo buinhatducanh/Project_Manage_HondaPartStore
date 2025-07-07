@@ -1,0 +1,22 @@
+{
+    "sourceFile": "components/Layout.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738867708648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738867741102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,9 @@\n \r\n const Layout = ({ children }) => {\r\n   return (\r\n     <>\r\n-      <Header />\r\n       <main>{children}</main>\r\n-      <Footer />\r\n     </>\r\n   );\r\n };\r\n \r\n"
+                }
+            ],
+            "date": 1738867708648,
+            "name": "Commit-0",
+            "content": "// components/Layout.js\r\nimport Header from \"./Header\";\r\nimport Footer from \"./Footer\";\r\n\r\nconst Layout = ({ children }) => {\r\n  return (\r\n    <>\r\n      <Header />\r\n      <main>{children}</main>\r\n      <Footer />\r\n    </>\r\n  );\r\n};\r\n\r\nexport default Layout;\r\n"
+        }
+    ]
+}

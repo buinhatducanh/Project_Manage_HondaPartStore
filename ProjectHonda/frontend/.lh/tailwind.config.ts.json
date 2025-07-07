@@ -1,0 +1,38 @@
+{
+    "sourceFile": "tailwind.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1738653933963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738653976732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import type { Config } from \"tailwindcss\";\n \n module.exports = {\n+  content: [\"./pages/**/*.{js,ts,jsx,tsx}\", \"./components/**/*.{js,ts,jsx,tsx}\"],\n   theme: {\n     extend: {\n       fontFamily: {\n         roboto: ['Roboto', 'sans-serif'],\n@@ -10,9 +11,8 @@\n   },\n   plugins: [],\n };\n \n-\n export default {\n   content: [\n     \"./pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./components/**/*.{js,ts,jsx,tsx,mdx}\",\n"
+                },
+                {
+                    "date": 1738911074457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,9 @@\n         foreground: \"var(--foreground)\",\n       },\n     },\n   },\n+  safelist: [\n+    \"bg-stone-800\",\n+  ],\n   plugins: [],\n } satisfies Config;\n"
+                },
+                {
+                    "date": 1741569393522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,28 @@\n import type { Config } from \"tailwindcss\";\n \n module.exports = {\n-  content: [\"./pages/**/*.{js,ts,jsx,tsx}\", \"./components/**/*.{js,ts,jsx,tsx}\"],\n+  content: [\n+    \"./pages/**/*.{js,ts,jsx,tsx,mdx}\",\n+    \"./components/**/*.{js,ts,jsx,tsx,mdx}\",\n+    \"./app/**/*.{js,ts,jsx,tsx,mdx}\",\n+  ],\n   theme: {\n     extend: {\n       fontFamily: {\n         roboto: ['Roboto', 'sans-serif'],\n       },\n+      colors: {\n+        background: \"var(--background)\",\n+        foreground: \"var(--foreground)\",\n+      },\n     },\n   },\n-  plugins: [],\n-};\n+  safelist: [\"bg-stone-800\"],\n+  plugins: [require(\"@tailwindcss/line-clamp\")], // ✅ Thêm plugin vào đây\n+} satisfies Config;\n \n+\n export default {\n   content: [\n     \"./pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./components/**/*.{js,ts,jsx,tsx,mdx}\",\n"
+                },
+                {
+                    "date": 1741569428872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import type { Config } from \"tailwindcss\";\n+import lineClamp from \"@tailwindcss/line-clamp\";\n \n module.exports = {\n   content: [\n     \"./pages/**/*.{js,ts,jsx,tsx,mdx}\",\n@@ -17,9 +18,10 @@\n       },\n     },\n   },\n   safelist: [\"bg-stone-800\"],\n-  plugins: [require(\"@tailwindcss/line-clamp\")], // ✅ Thêm plugin vào đây\n+  plugins: [lineClamp],\n+  \n } satisfies Config;\n \n \n export default {\n"
+                },
+                {
+                    "date": 1741569738906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import type { Config } from \"tailwindcss\";\n-import lineClamp from \"@tailwindcss/line-clamp\";\n \n module.exports = {\n   content: [\n     \"./pages/**/*.{js,ts,jsx,tsx,mdx}\",\n@@ -18,11 +17,11 @@\n       },\n     },\n   },\n   safelist: [\"bg-stone-800\"],\n-  plugins: [lineClamp],\n+  plugins: [], // 👈 Để trống hoặc thêm các plugin khác (nếu có)\n   \n-} satisfies Config;\n+}\n \n \n export default {\n   content: [\n"
+                }
+            ],
+            "date": 1738653933963,
+            "name": "Commit-0",
+            "content": "import type { Config } from \"tailwindcss\";\n\nmodule.exports = {\n  theme: {\n    extend: {\n      fontFamily: {\n        roboto: ['Roboto', 'sans-serif'],\n      },\n    },\n  },\n  plugins: [],\n};\n\n\nexport default {\n  content: [\n    \"./pages/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./components/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./app/**/*.{js,ts,jsx,tsx,mdx}\",\n  ],\n  theme: {\n    extend: {\n      colors: {\n        background: \"var(--background)\",\n        foreground: \"var(--foreground)\",\n      },\n    },\n  },\n  plugins: [],\n} satisfies Config;\n"
+        }
+    ]
+}

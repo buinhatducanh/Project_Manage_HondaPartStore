@@ -1,0 +1,18 @@
+{
+    "sourceFile": "components/LoadingScreen.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741583673282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741583673282,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport ClipLoader from \"react-spinners/ClipLoader\";\r\n\r\nconst LoadingScreen = ({ loading }) => {\r\n  if (!loading) return null; // Nếu không loading, không hiển thị gì cả\r\n\r\n  return (\r\n    <div style={styles.loadingScreen}>\r\n      <ClipLoader size={50} color=\"#ffffff\" />\r\n      <p style={styles.loadingText}>Đang xử lý...</p>\r\n    </div>\r\n  );\r\n};\r\n\r\n// Style cho màn hình loading\r\nconst styles = {\r\n  loadingScreen: {\r\n    position: \"fixed\",\r\n    top: 0,\r\n    left: 0,\r\n    width: \"100vw\",\r\n    height: \"100vh\",\r\n    backgroundColor: \"rgba(0, 0, 0, 0.5)\", // Làm mờ nền\r\n    display: \"flex\",\r\n    flexDirection: \"column\",\r\n    justifyContent: \"center\",\r\n    alignItems: \"center\",\r\n    zIndex: 9999, // Hiển thị trên tất cả UI khác\r\n    color: \"#ffffff\",\r\n  },\r\n  loadingText: {\r\n    marginTop: \"10px\",\r\n    fontSize: \"18px\",\r\n    fontWeight: \"bold\",\r\n  },\r\n};\r\n\r\nexport default LoadingScreen;\r\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738056286052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740440870032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,20 +2,23 @@\n   \"name\": \"backend\",\n   \"version\": \"1.0.0\",\n   \"main\": \"index.js\",\n   \"scripts\": {\n-  \"dev\": \"nodemon server.js\"\n+    \"dev\": \"nodemon server.js\"\n   },\n   \"keywords\": [],\n   \"author\": \"\",\n   \"license\": \"ISC\",\n   \"description\": \"\",\n   \"dependencies\": {\n     \"body-parser\": \"^1.20.3\",\n+    \"cloudinary\": \"^1.41.3\",\n     \"cors\": \"^2.8.5\",\n     \"dotenv\": \"^16.4.7\",\n     \"express\": \"^4.21.2\",\n-    \"mongoose\": \"^8.9.5\"\n+    \"mongoose\": \"^8.9.5\",\n+    \"multer\": \"^1.4.5-lts.1\",\n+    \"multer-storage-cloudinary\": \"^4.0.0\"\n   },\n   \"devDependencies\": {\n     \"nodemon\": \"^3.1.9\"\n   }\n"
+                }
+            ],
+            "date": 1738056286052,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"backend\",\n  \"version\": \"1.0.0\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n  \"dev\": \"nodemon server.js\"\n  },\n  \"keywords\": [],\n  \"author\": \"\",\n  \"license\": \"ISC\",\n  \"description\": \"\",\n  \"dependencies\": {\n    \"body-parser\": \"^1.20.3\",\n    \"cors\": \"^2.8.5\",\n    \"dotenv\": \"^16.4.7\",\n    \"express\": \"^4.21.2\",\n    \"mongoose\": \"^8.9.5\"\n  },\n  \"devDependencies\": {\n    \"nodemon\": \"^3.1.9\"\n  }\n}\n"
+        }
+    ]
+}

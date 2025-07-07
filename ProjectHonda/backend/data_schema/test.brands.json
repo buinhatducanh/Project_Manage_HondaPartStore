@@ -1,0 +1,43 @@
+[
+    {
+        "_id": { "$oid": "65d1f1a3c1a2b1001f3e0001" },
+        "name": "Vision",
+        "description": "Mẫu xe tay ga nhỏ gọn, tiết kiệm nhiên liệu, phù hợp với đô thị."
+    },
+    {
+        "_id": { "$oid": "65d1f1a3c1a2b1001f3e0002" },
+        "name": "Wave",
+        "description": "Dòng xe số phổ biến, bền bỉ và tiết kiệm nhiên liệu."
+    },
+    {
+        "_id": { "$oid": "65d1f1a3c1a2b1001f3e0003" },
+        "name": "Air Blade",
+        "description": "Xe tay ga thể thao, động cơ mạnh mẽ, thiết kế hiện đại."
+    },
+    {
+        "_id": { "$oid": "65d1f1a3c1a2b1001f3e0004" },
+        "name": "SH",
+        "description": "Mẫu xe tay ga cao cấp với thiết kế sang trọng và động cơ mạnh."
+    },
+    {
+        "_id": { "$oid": "65d1f1a3c1a2b1001f3e0005" },
+        "name": "Lead",
+        "description": "Xe tay ga với cốp rộng, phù hợp với người dùng cần không gian chứa đồ."
+    },
+    {
+        "_id": { "$oid": "65d1f1a3c1a2b1001f3e0006" },
+        "name": "Future",
+        "description": "Dòng xe số mạnh mẽ với công nghệ tiên tiến, tiết kiệm nhiên liệu."
+    },
+    {
+        "_id": { "$oid": "65d1f1a3c1a2b1001f3e0007" },
+        "name": "Winner X",
+        "description": "Dòng xe côn tay thể thao, hiệu suất cao, phù hợp với những ai yêu thích tốc độ."
+    },
+    {
+        "_id": { "$oid": "65d1f1a3c1a2b1001f3e0008" },
+        "name": "Super Cub C125",
+        "description": "Xe số cổ điển mang phong cách hoài niệm nhưng vẫn hiện đại."
+    }
+  ]
+  

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "services/categoryService.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741337830796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741337830796,
+            "name": "Commit-0",
+            "content": "\r\nexport const getAllChildIds = (categories, parentId) => {\r\n    const childIds = categories\r\n        .filter((category) => category.parent === parentId)\r\n        .flatMap((category) => [category._id, ...getAllChildIds(categories, category._id)]);\r\n\r\n    return childIds;\r\n};\r\n\r\n// Hàm xử lý chọn/bỏ chọn\r\nexport const handleCategoryChange = (categoryId, categories, formData, setFormData) => {\r\n    setFormData((prevData) => {\r\n        const isSelected = prevData.categories.includes(categoryId);\r\n        const childIds = getAllChildIds(categories, categoryId);\r\n\r\n        let updatedCategories;\r\n\r\n        if (isSelected) {\r\n            // Nếu đã chọn => bỏ chọn cha và con\r\n            updatedCategories = prevData.categories.filter((id) => id !== categoryId && !childIds.includes(id));\r\n        } else {\r\n            // Nếu chưa chọn => chọn cha và con\r\n            updatedCategories = [...prevData.categories, categoryId, ...childIds];\r\n        }\r\n\r\n        return { ...prevData, categories: [...new Set(updatedCategories)] }; // Dùng Set để loại trùng\r\n    });\r\n};\r\n\r\n// Đệ quy render cây danh mục\r\nexport const renderCategories = (categories, parent = null, formData, handleCategoryChange) => {\r\n    return categories\r\n        .filter((category) => category.parent === parent)\r\n        .map((category) => (\r\n            <div key={category._id} className=\"ml-3\">\r\n                <label className=\"flex items-center space-x-2\">\r\n                    <input\r\n                        type=\"checkbox\"\r\n                        value={category._id}\r\n                        checked={formData.categories.includes(category._id)}\r\n                        onChange={() => handleCategoryChange(category._id)}\r\n                    />\r\n                    <span>{category.name}</span>\r\n                </label>\r\n                {renderCategories(categories, category._id, formData, handleCategoryChange)}\r\n            </div>\r\n        ));\r\n};\r\n"
+        }
+    ]
+}

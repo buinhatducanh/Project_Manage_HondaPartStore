@@ -1,0 +1,74 @@
+{
+    "sourceFile": "css/Section.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1741580930138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741581080445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,8 @@\n     top: 0;\r\n     right: 0;\r\n     width: 20px;\r\n     height: 100%;\r\n-    background-color: #8b0000; /* Màu tối hơn */\r\n+    background-color: #ffffff; /* Màu tối hơn */\r\n     clip-path: polygon(100% 0, 0 100%, 100% 100%);\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741581268423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     right: 0;\r\n     width: 20px;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n-    clip-path: polygon(100% 0, 0 100%, 100% 100%);\r\n+    clip-path: polygon(0 100%, 100% 0,100% 100%);\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741581324768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     right: 0;\r\n     width: 20px;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n-    clip-path: polygon(0 100%, 100% 0,100% 100%);\r\n+    clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741581388330,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,8 @@\n     right: 0;\r\n     width: 20px;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n-    clip-path: polygon(0 0, 100% 0,100% 100%);\r\n+    clip-path: polygon(0 0, 100% 0, 0 100%);\r\n+\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741581393754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,7 @@\n     right: 0;\r\n     width: 20px;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n-    clip-path: polygon(0 0, 100% 0, 0 100%);\r\n-\r\n+    clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741581599872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n   .triangle {\r\n     position: absolute;\r\n     top: 0;\r\n     right: 0;\r\n-    width: 20px;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n     clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n"
+                },
+                {
+                    "date": 1741581608883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n   \r\n   .triangle {\r\n     position: absolute;\r\n     top: 0;\r\n-    right: 0;\r\n+    right: 30;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n     clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n"
+                },
+                {
+                    "date": 1741581617108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n   \r\n   .triangle {\r\n     position: absolute;\r\n     top: 0;\r\n-    right: 30;\r\n+    right: 0;\r\n+    width: 30px;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n     clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n"
+                },
+                {
+                    "date": 1741581770040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,9 @@\n   .triangle {\r\n     position: absolute;\r\n     top: 0;\r\n     right: 0;\r\n-    width: 30px;\r\n-    height: 100%;\r\n+    width: 5%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n     clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741581786480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n .section-title {\r\n     position: relative;\r\n     display: inline-block;\r\n-    padding-right: 24px; /* Để chừa chỗ cho góc cắt */\r\n+    padding-right: 34px; /* Để chừa chỗ cho góc cắt */\r\n   }\r\n   \r\n   .triangle {\r\n     position: absolute;\r\n     top: 0;\r\n     right: 0;\r\n     width: 5%;\r\n+    height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n     clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741581792429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   .triangle {\r\n     position: absolute;\r\n     top: 0;\r\n     right: 0;\r\n-    width: 5%;\r\n+    width: 5px;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n     clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n"
+                },
+                {
+                    "date": 1741581798499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,15 @@\n .section-title {\r\n     position: relative;\r\n     display: inline-block;\r\n-    padding-right: 34px; /* Để chừa chỗ cho góc cắt */\r\n+    padding-right: 44px; /* Để chừa chỗ cho góc cắt */\r\n   }\r\n   \r\n   .triangle {\r\n     position: absolute;\r\n     top: 0;\r\n     right: 0;\r\n-    width: 5px;\r\n+    width: 50px;\r\n     height: 100%;\r\n     background-color: #ffffff; /* Màu tối hơn */\r\n     clip-path: polygon(0 0, 100% 0,100% 100%);\r\n   }\r\n"
+                },
+                {
+                    "date": 1741581808497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .section-title {\r\n     position: relative;\r\n     display: inline-block;\r\n-    padding-right: 44px; /* Để chừa chỗ cho góc cắt */\r\n+    padding-right: 650px; /* Để chừa chỗ cho góc cắt */\r\n   }\r\n   \r\n   .triangle {\r\n     position: absolute;\r\n"
+                },
+                {
+                    "date": 1741581821625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n .section-title {\r\n     position: relative;\r\n     display: inline-block;\r\n-    padding-right: 650px; /* Để chừa chỗ cho góc cắt */\r\n   }\r\n   \r\n   .triangle {\r\n     position: absolute;\r\n"
+                }
+            ],
+            "date": 1741580930138,
+            "name": "Commit-0",
+            "content": ".section-title {\r\n    position: relative;\r\n    display: inline-block;\r\n    padding-right: 24px; /* Để chừa chỗ cho góc cắt */\r\n  }\r\n  \r\n  .triangle {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    width: 20px;\r\n    height: 100%;\r\n    background-color: #8b0000; /* Màu tối hơn */\r\n    clip-path: polygon(100% 0, 0 100%, 100% 100%);\r\n  }\r\n  "
+        }
+    ]
+}

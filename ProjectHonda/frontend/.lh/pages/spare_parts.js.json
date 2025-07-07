@@ -1,0 +1,22 @@
+{
+    "sourceFile": "pages/spare_parts.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738750305930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738867813689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,14 +6,12 @@\n   const router = useRouter();\r\n \r\n   return (\r\n     <>\r\n-      <Header />\r\n       <div className=\"container mx-auto p-4\">\r\n \r\n       </div>\r\n-      <Footer />\r\n     </>\r\n   );\r\n };\r\n \r\n-export default MSpare_parts;\r\n+export default Spare_parts;\r\n"
+                }
+            ],
+            "date": 1738750305930,
+            "name": "Commit-0",
+            "content": "import { useRouter } from \"next/router\";\r\nimport Header from \"../components/Header\";\r\nimport Footer from \"../components/Footer\";\r\n\r\nconst Spare_parts = () => {\r\n  const router = useRouter();\r\n\r\n  return (\r\n    <>\r\n      <Header />\r\n      <div className=\"container mx-auto p-4\">\r\n\r\n      </div>\r\n      <Footer />\r\n    </>\r\n  );\r\n};\r\n\r\nexport default MSpare_parts;\r\n"
+        }
+    ]
+}

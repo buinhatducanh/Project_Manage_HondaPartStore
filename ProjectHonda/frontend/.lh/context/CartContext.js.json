@@ -1,0 +1,18 @@
+{
+    "sourceFile": "context/CartContext.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1738752193556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1738752193556,
+            "name": "Commit-0",
+            "content": "import { createContext, useContext, useState, useEffect } from \"react\";\r\n\r\n// Tạo Context\r\nconst CartContext = createContext();\r\n\r\nexport const CartProvider = ({ children }) => {\r\n  const [cart, setCart] = useState([]);\r\n\r\n  // 🔹 Load giỏ hàng từ localStorage khi mở lại trang\r\n  useEffect(() => {\r\n    const savedCart = localStorage.getItem(\"cart\");\r\n    if (savedCart) {\r\n      setCart(JSON.parse(savedCart));\r\n    }\r\n  }, []);\r\n\r\n  // 🔹 Hàm thêm sản phẩm vào giỏ hàng\r\n  const addToCart = (product) => {\r\n    setCart((prev) => {\r\n      const updatedCart = [...prev, product];\r\n      localStorage.setItem(\"cart\", JSON.stringify(updatedCart)); // Lưu vào localStorage\r\n      return updatedCart;\r\n    });\r\n  };\r\n\r\n  // 🔹 Hàm xóa sản phẩm khỏi giỏ hàng\r\n  const removeFromCart = (index) => {\r\n    setCart((prev) => {\r\n      const updatedCart = prev.filter((_, i) => i !== index);\r\n      localStorage.setItem(\"cart\", JSON.stringify(updatedCart)); // Cập nhật localStorage\r\n      return updatedCart;\r\n    });\r\n  };\r\n\r\n  return (\r\n    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>\r\n      {children}\r\n    </CartContext.Provider>\r\n  );\r\n};\r\n\r\n// Tạo hook để dễ dàng sử dụng Context trong các component khác\r\nexport const useCart = () => useContext(CartContext);\r\n"
+        }
+    ]
+}

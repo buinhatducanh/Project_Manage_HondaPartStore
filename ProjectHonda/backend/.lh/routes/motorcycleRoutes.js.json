@@ -1,0 +1,22 @@
+{
+    "sourceFile": "routes/motorcycleRoutes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738757730296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738856369306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require(\"express\");\r\n const router = express.Router();\r\n-const Motorcycle = require(\"../models/Motorcycle\");\r\n+const Motorcycle = require(\"../models/Motorcycle_Company\");\r\n \r\n // CREATE: Thêm mới motorcycle\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n"
+                }
+            ],
+            "date": 1738757730296,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst router = express.Router();\r\nconst Motorcycle = require(\"../models/Motorcycle\");\r\n\r\n// CREATE: Thêm mới motorcycle\r\nrouter.post(\"/\", async (req, res) => {\r\n  try {\r\n    const motorcycle = new Motorcycle(req.body);\r\n    await motorcycle.save();\r\n    res.status(201).json(motorcycle);\r\n  } catch (err) {\r\n    res.status(400).json({ message: err.message });\r\n  }\r\n});\r\n\r\n// READ: Lấy tất cả motorcycles\r\nrouter.get(\"/\", async (req, res) => {\r\n  try {\r\n    const motorcycles = await Motorcycle.find();\r\n    res.status(200).json(motorcycles);\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n});\r\n\r\n// READ: Lấy một motorcycle theo ID\r\nrouter.get(\"/:id\", async (req, res) => {\r\n  try {\r\n    const motorcycle = await Motorcycle.findById(req.params.id);\r\n    if (!motorcycle) {\r\n      return res.status(404).json({ message: \"Motorcycle not found\" });\r\n    }\r\n    res.status(200).json(motorcycle);\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n});\r\n\r\n// UPDATE: Cập nhật thông tin motorcycle\r\nrouter.put(\"/:id\", async (req, res) => {\r\n  try {\r\n    const updatedMotorcycle = await Motorcycle.findByIdAndUpdate(req.params.id, req.body, { new: true });\r\n    if (!updatedMotorcycle) {\r\n      return res.status(404).json({ message: \"Motorcycle not found\" });\r\n    }\r\n    res.status(200).json(updatedMotorcycle);\r\n  } catch (err) {\r\n    res.status(400).json({ message: err.message });\r\n  }\r\n});\r\n\r\n// DELETE: Xóa motorcycle\r\nrouter.delete(\"/:id\", async (req, res) => {\r\n  try {\r\n    const deletedMotorcycle = await Motorcycle.findByIdAndDelete(req.params.id);\r\n    if (!deletedMotorcycle) {\r\n      return res.status(404).json({ message: \"Motorcycle not found\" });\r\n    }\r\n    res.status(200).json({ message: \"Motorcycle deleted successfully\" });\r\n  } catch (err) {\r\n    res.status(400).json({ message: err.message });\r\n  }\r\n});\r\n\r\nmodule.exports = router;\r\n"
+        }
+    ]
+}

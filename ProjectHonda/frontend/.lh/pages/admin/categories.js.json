@@ -1,0 +1,18 @@
+{
+    "sourceFile": "pages/admin/categories.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741339982296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741339982296,
+            "name": "Commit-0",
+            "content": "import AdminCategories from \"@/components/admin/AdminCategories\";\r\nexport default function CategoriesPage() {\r\n    return (\r\n            <AdminCategories />\r\n    )\r\n}"
+        }
+    ]
+}

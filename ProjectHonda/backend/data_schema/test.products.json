@@ -1,0 +1,206 @@
+[
+  {
+    "_id": { "$oid": "65c235b1a1b2c3d4e5f61001" },
+    "code": "HN-BUGI-001",
+    "name": "Bugi NGK Honda",
+    "brand": "65d1f1a3c1a2b1001f3e0002",
+    "categories": [
+      "65c234a1a1b2c3d4e5f60114",
+      "65c234a1a1b2c3d4e5f60113"
+    ],
+    "price": 120000,
+    "quantity": 50,
+    "description": "Bugi NGK chính hãng giúp đánh lửa mạnh mẽ, tiết kiệm nhiên liệu.",
+    "image": [
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1738999645/test_images/yg3bw1dogc4euoalnnce.jpg",
+        "public_id": "test_images/yg3bw1dogc4euoalnnce"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1739447969/bugi-ngk-honda2_fscvad.jpg",
+        "public_id": "bugi-ngk-honda2_fscvad"
+      }
+    ],
+    "additionalInfo": {
+      "weight": 50,
+      "length": 70,
+      "width": 20,
+      "height": 20
+    }
+  },
+  {
+    "_id": { "$oid": "65c235b1a1b2c3d4e5f61002" },
+    "code": "HN-NHON-002",
+    "name": "Nhông Sên Đĩa DID",
+    "brand": "65d1f1a3c1a2b1001f3e0006",
+    "categories": [
+      "65c234a1a1b2c3d4e5f60112",
+      "65c234a1a1b2c3d4e5f60111"
+    ],
+    "price": 550000,
+    "quantity": 30,
+    "description": "Bộ nhông sên đĩa chính hãng Honda, giúp xe vận hành êm ái và bền bỉ.",
+    "image": [
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg",
+        "public_id": "empty_cpvono"
+      }
+    ],
+    "additionalInfo": {
+      "weight": 1500,
+      "length": 300,
+      "width": 300,
+      "height": 50
+    }
+  },
+  {
+    "_id": { "$oid": "65c235b1a1b2c3d4e5f61003" },
+    "code": "HN-ACQUY-003",
+    "name": "Bình Ắc Quy GS",
+    "brand": "65d1f1a3c1a2b1001f3e0004",
+    "categories": [
+      "65c234a1a1b2c3d4e5f60104",
+      "65c234a1a1b2c3d4e5f60101"
+    ],
+    "price": 450000,
+    "quantity": 20,
+    "description": "Bình ắc quy GS Honda chính hãng, bền bỉ, mạnh mẽ.",
+    "image": [
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg",
+        "public_id": "empty_cpvono"
+      }
+    ],
+    "additionalInfo": {
+      "weight": 2500,
+      "length": 200,
+      "width": 150,
+      "height": 180
+    }
+  },
+  {
+    "_id": { "$oid": "65c235b1a1b2c3d4e5f61004" },
+    "code": "HN-MAPHANH-004",
+    "name": "Má phanh đĩa trước Honda",
+    "brand": "65d1f1a3c1a2b1001f3e0003",
+    "categories": [
+      "65c234a1a1b2c3d4e5f60109",
+      "65c234a1a1b2c3d4e5f60108"
+    ],
+    "price": 180000,
+    "quantity": 40,
+    "description": "Má phanh đĩa chính hãng Honda, an toàn và bền bỉ.",
+    "image": [
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg",
+        "public_id": "empty_cpvono"
+      }
+    ],
+    "additionalInfo": {
+      "weight": 200,
+      "length": 100,
+      "width": 80,
+      "height": 30
+    }
+  },
+  {
+    "_id": { "$oid": "65c235b1a1b2c3d4e5f61005" },
+    "code": "HN-LOPIRC-005",
+    "name": "Lốp IRC 80/90-17",
+    "brand": "65d1f1a3c1a2b1001f3e0007",
+    "categories": [
+      "65c234a1a1b2c3d4e5f60107",
+      "65c234a1a1b2c3d4e5f60111"
+    ],
+    "price": 650000,
+    "quantity": 25,
+    "description": "Lốp xe IRC chính hãng cho xe Honda, bám đường tốt, bền bỉ.",
+    "image": [
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg",
+        "public_id": "empty_cpvono"
+      }
+    ],
+    "additionalInfo": {
+      "weight": 3000,
+      "length": 600,
+      "width": 600,
+      "height": 120
+    }
+  },
+  {
+    "_id": { "$oid": "65c235b1a1b2c3d4e5f61006" },
+    "code": "HN-DAUDONG-006",
+    "name": "Dầu nhớt Honda 10W-40",
+    "brand": "65d1f1a3c1a2b1001f3e0005",
+    "categories": [
+      "65c234a1a1b2c3d4e5f60116",
+      "65c234a1a1b2c3d4e5f60113"
+    ],
+    "price": 110000,
+    "quantity": 100,
+    "description": "Dầu nhớt Honda chính hãng, giúp động cơ vận hành trơn tru và bền bỉ.",
+    "image": [
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg",
+        "public_id": "empty_cpvono"
+      }
+    ],
+    "additionalInfo": {
+      "weight": 900,
+      "length": 250,
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "_id": { "$oid": "65c235b1a1b2c3d4e5f61007" },
+    "code": "HN-LOCDAU-007",
+    "name": "Lọc dầu nhớt Honda",
+    "brand": "65d1f1a3c1a2b1001f3e0004",
+    "categories": [
+      "65c234a1a1b2c3d4e5f60108",
+      "65c234a1a1b2c3d4e5f60116"
+    ],
+    "price": 90000,
+    "quantity": 70,
+    "description": "Lọc dầu nhớt chính hãng giúp bảo vệ động cơ xe máy Honda.",
+    "image": [
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg",
+        "public_id": "empty_cpvono"
+      }
+    ],
+    "additionalInfo": {
+      "weight": 300,
+      "length": 80,
+      "width": 80,
+      "height": 60
+    }
+  },
+  {
+    "_id": { "$oid": "65c235b1a1b2c3d4e5f61008" },
+    "code": "HN-PHUOT-008",
+    "name": "Phuộc trước Honda Vision",
+    "brand": "65d1f1a3c1a2b1001f3e0001",
+    "categories": [
+      "65c234a1a1b2c3d4e5f60110",
+      "65c234a1a1b2c3d4e5f60101"
+    ],
+    "price": 750000,
+    "quantity": 20,
+    "description": "Phuộc trước chính hãng Honda giúp xe vận hành êm ái, bền bỉ.",
+    "image": [
+      {
+        "url": "https://res.cloudinary.com/dmz66rbbk/image/upload/v1739377337/empty_cpvono.jpg",
+        "public_id": "empty_cpvono"
+      }
+    ],
+    "additionalInfo": {
+      "weight": 2500,
+      "length": 400,
+      "width": 100,
+      "height": 100
+    }
+  }
+]

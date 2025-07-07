@@ -1,0 +1,18 @@
+{
+    "sourceFile": "upload.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1738859114100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1738859114100,
+            "name": "Commit-0",
+            "content": "const multer = require(\"multer\");\r\nconst path = require(\"path\");\r\n\r\n// Cấu hình lưu ảnh vào thư mục \"uploads\"\r\nconst storage = multer.diskStorage({\r\n  destination: function (req, file, cb) {\r\n    cb(null, \"uploads/\");\r\n  },\r\n  filename: function (req, file, cb) {\r\n    cb(null, Date.now() + path.extname(file.originalname)); // Tên file theo timestamp\r\n  },\r\n});\r\n\r\n// Bộ lọc chỉ cho phép file ảnh\r\nconst fileFilter = (req, file, cb) => {\r\n  if (file.mimetype.startsWith(\"image/\")) {\r\n    cb(null, true);\r\n  } else {\r\n    cb(new Error(\"Chỉ cho phép tải ảnh!\"), false);\r\n  }\r\n};\r\n\r\n// Middleware upload ảnh\r\nconst upload = multer({ storage, fileFilter });\r\n\r\nmodule.exports = upload;\r\n"
+        }
+    ]
+}

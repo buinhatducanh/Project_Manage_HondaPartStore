@@ -1,0 +1,18 @@
+{
+    "sourceFile": "controller/imageController.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1738927048866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1738927048866,
+            "name": "Commit-0",
+            "content": "const Image = require(\"../models/imageModel\");\r\nconst Product = require(\"../models/productModel\");\r\nconst path = require(\"path\");\r\nconst fs = require(\"fs\");\r\n\r\n// Upload ảnh\r\nexports.uploadImage = async (req, res) => {\r\n  try {\r\n    const { productId } = req.body;\r\n    if (!productId) return res.status(400).json({ message: \"Cần có ID sản phẩm\" });\r\n\r\n    // Kiểm tra sản phẩm tồn tại\r\n    const product = await Product.findById(productId);\r\n    if (!product) return res.status(404).json({ message: \"Không tìm thấy sản phẩm\" });\r\n\r\n    const image = new Image({\r\n      product: productId,\r\n      url: `/uploads/${req.file.filename}`,\r\n    });\r\n\r\n    await image.save();\r\n    res.status(201).json({ message: \"Ảnh tải lên thành công\", image });\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n};\r\n\r\n// Lấy ảnh theo sản phẩm\r\nexports.getImagesByProduct = async (req, res) => {\r\n  try {\r\n    const images = await Image.find({ product: req.params.productId });\r\n    res.json(images);\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n};\r\n\r\n// Xóa ảnh\r\nexports.deleteImage = async (req, res) => {\r\n  try {\r\n    const image = await Image.findById(req.params.id);\r\n    if (!image) return res.status(404).json({ message: \"Không tìm thấy ảnh\" });\r\n\r\n    // Xóa file vật lý\r\n    const imagePath = path.join(__dirname, \"..\", image.url);\r\n    fs.unlinkSync(imagePath);\r\n\r\n    await Image.findByIdAndDelete(req.params.id);\r\n    res.json({ message: \"Ảnh đã được xóa\" });\r\n  } catch (err) {\r\n    res.status(500).json({ message: err.message });\r\n  }\r\n};\r\n"
+        }
+    ]
+}

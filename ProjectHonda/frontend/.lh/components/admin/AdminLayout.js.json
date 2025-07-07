@@ -1,0 +1,22 @@
+{
+    "sourceFile": "components/admin/AdminLayout.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1741338029443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741338047538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import AdminSidebar from \"../components/admin/AdminSliderbar\";\r\n+import AdminSidebar from \"./AdminSliderbar\";\r\n \r\n const AdminLayout = ({ children }) => {\r\n     return (\r\n       <div className=\"flex\">\r\n"
+                }
+            ],
+            "date": 1741338029443,
+            "name": "Commit-0",
+            "content": "import AdminSidebar from \"../components/admin/AdminSliderbar\";\r\n\r\nconst AdminLayout = ({ children }) => {\r\n    return (\r\n      <div className=\"flex\">\r\n        <AdminSidebar />\r\n        <div className=\"flex-1 p-6 bg-gray-100 min-h-screen\">\r\n          {children}\r\n        </div>\r\n      </div>\r\n    );\r\n  };\r\n  \r\n  export default AdminLayout;\r\n  "
+        }
+    ]
+}

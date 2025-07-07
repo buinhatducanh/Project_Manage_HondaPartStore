@@ -1,0 +1,18 @@
+{
+    "sourceFile": "models/Review.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1738064334160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1738064334160,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\n\r\nconst reviewSchema = new mongoose.Schema({\r\n  user: { type: mongoose.Schema.Types.ObjectId, ref: \"User\", required: true },\r\n  product: { type: mongoose.Schema.Types.ObjectId, ref: \"Product\", required: true },\r\n  rating: { type: Number, min: 1, max: 5, required: true },\r\n  comment: { type: String },\r\n}, { timestamps: true });\r\n\r\nmodule.exports = mongoose.model(\"Review\", reviewSchema);\r\n"
+        }
+    ]
+}

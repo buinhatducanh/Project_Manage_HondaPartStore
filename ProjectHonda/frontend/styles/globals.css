@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Để tạo hiệu ứng cuộn mượt mà */
+
+/* Tạo hiệu ứng bay ra */
+.nav-vertical-fly-out {
+    animation: flyOutAnimation 0.3s ease-out;   
+}
+
+/* Hiệu ứng bay ra */
+@keyframes flyOutAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cải thiện trải nghiệm cuộn */
+.ux-nav-vertical-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ux-nav-vertical-menu::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.482);
+    border-radius: 4px;
+}
+
+.ux-nav-vertical-menu::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.448);
+}

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "pages/_app.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1738667141004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738751698229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import { CartProvider } from \"../context/CartContext\";\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return (\r\n+    <CartProvider>\r\n+      <Component {...pageProps} />\r\n+    </CartProvider>\r\n+  );\r\n+}\r\n+\r\n+export default MyApp;\r\n"
+                },
+                {
+                    "date": 1738751717173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+import \"../styles/globals.css\";\r\n+\r\n+function MyApp({ Component, pageProps }) {\r\n+  return <Component {...pageProps} />;\r\n+}\r\n+\r\n+export default MyApp;\r\n"
+                },
+                {
+                    "date": 1738752201880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,4 @@\n-import \"../styles/globals.css\";\r\n-\r\n-function MyApp({ Component, pageProps }) {\r\n-  return <Component {...pageProps} />;\r\n-}\r\n-\r\n-export default MyApp;\r\n import { CartProvider } from \"../context/CartContext\";\r\n \r\n function MyApp({ Component, pageProps }) {\r\n   return (\r\n@@ -15,11 +8,4 @@\n   );\r\n }\r\n \r\n export default MyApp;\r\n-import \"../styles/globals.css\";\r\n-\r\n-function MyApp({ Component, pageProps }) {\r\n-  return <Component {...pageProps} />;\r\n-}\r\n-\r\n-export default MyApp;\r\n"
+                },
+                {
+                    "date": 1738752209436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import \"../styles/globals.css\";\r\n-\r\n import { CartProvider } from \"../context/CartContext\";\r\n \r\n function MyApp({ Component, pageProps }) {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1738867733218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,16 @@\n+// pages/_app.js\r\n import \"../styles/globals.css\";\r\n import { CartProvider } from \"../context/CartContext\";\r\n+import Layout from \"../components/Layout\";\r\n \r\n function MyApp({ Component, pageProps }) {\r\n   return (\r\n     <CartProvider>\r\n-      <Component {...pageProps} />\r\n+      <Layout>\r\n+        <Component {...pageProps} />\r\n+      </Layout>\r\n     </CartProvider>\r\n   );\r\n }\r\n \r\n export default MyApp;\r\n-\r\n"
+                }
+            ],
+            "date": 1738667141004,
+            "name": "Commit-0",
+            "content": "import \"../styles/globals.css\";\r\n\r\nfunction MyApp({ Component, pageProps }) {\r\n  return <Component {...pageProps} />;\r\n}\r\n\r\nexport default MyApp;\r\n"
+        }
+    ]
+}
