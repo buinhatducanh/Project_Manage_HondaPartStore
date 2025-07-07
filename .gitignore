@@ -11,3 +11,5 @@ backend/.env
 .DS_Store
 *.log
 
+# Ignore all node_modules
+**/node_modules/
