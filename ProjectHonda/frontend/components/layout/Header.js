@@ -20,7 +20,8 @@ export default function Header() {
             try {
                 // Nếu không có dữ liệu hợp lệ, gọi API
                 const { data } = await axios.get("http://localhost:5000/api/brands");
-                console.log("Dữ liệu brands lấy từ API");
+                
+
                 if (Array.isArray(data)) {
                     setBrands(data);
                 } else {
@@ -34,6 +35,7 @@ export default function Header() {
         };
 
         fetchBrands();
+        console.log(brands);
     }, []);
 
     useEffect(() => {

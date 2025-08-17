@@ -22,6 +22,7 @@ const Home = () => {
         const productRes = await axios.get(
           "http://localhost:5000/api/products"
         );
+       
         const brandRes = await axios.get("http://localhost:5000/api/brands"); // Lấy danh sách brands
         const categorieRes = await axios.get(
           "http://localhost:5000/api/categories"
